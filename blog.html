@@ -182,6 +182,31 @@
       </div>
     </footer>
 
+    <script>
+      // Inline fallback reveal script — will run even if ./assets/js/common.js isn't present
+      (function(){
+        if (window.__COMMON_REVEAL_INSTALLED) return; window.__COMMON_REVEAL_INSTALLED = true;
+        document.addEventListener('DOMContentLoaded', function(){
+          var selectors = '.bio-card, .social-links, .project-card, .trip, .post, .timeline-item';
+          var faders = document.querySelectorAll(selectors);
+          if (!faders || faders.length === 0) return;
+          var appearOptions = { threshold: 0.18, rootMargin: '0px 0px -40px 0px' };
+          try {
+            var appearOnScroll = new IntersectionObserver(function(entries, observer){
+              entries.forEach(function(entry){
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('show');
+                observer.unobserve(entry.target);
+              });
+            }, appearOptions);
+            faders.forEach(function(f){ appearOnScroll.observe(f); });
+          } catch (e) {
+            // IntersectionObserver not supported -> show all
+            faders.forEach(function(f){ f.classList.add('show'); });
+          }
+        });
+      })();
+    </script>
     <script src="./assets/js/common.js"></script>
   </body>
 </html>
