@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI mini ChatBot by Talha</title>
+  <meta name="theme-color" content="#121212" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg:#0f0f10; --panel:rgba(255,255,255,.06); --panel-2:rgba(255,255,255,.08);
+      --glass:rgba(255,255,255,.05); --border:rgba(255,255,255,.12);
+      --text:#e7e7ea; --sub:#b5b5be; --brand:#1DB954; --brand-2:#1ed760; --danger:#ff5d5d;
+      --shadow:0 10px 30px rgba(0,0,0,.45); --radius:20px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 800px at -10% -10%, rgba(29,185,84,.12), transparent 50%),
+        radial-gradient(900px 700px at 110% 10%, rgba(116,255,199,.10), transparent 55%),
+        radial-gradient(1200px 800px at 50% 120%, rgba(29,185,84,.10), transparent 50%),
+        linear-gradient(180deg,#0c0d0d,#121314 60%, #0f0f10);
+      overflow:hidden;
+    }
+    .app{display:grid; grid-template-rows:auto 1fr auto; height:100%; max-width:1100px; margin:0 auto; padding:16px; gap:14px;}
+    .header{
+      display:flex; align-items:center; justify-content:space-between; padding:14px 16px;
+      background:var(--panel); backdrop-filter:blur(14px); border:1px solid var(--border);
+      border-radius:var(--radius); box-shadow:var(--shadow);
+    }
+    .brand{display:flex; gap:12px; align-items:center;}
+    .brand .dot{width:12px; height:12px; border-radius:50%; background:var(--brand); box-shadow:0 0 12px var(--brand)}
+    .title{font-weight:800; letter-spacing:.2px}
+    .subtitle{color:var(--sub); font-size:12px}
+    .profile{display:flex; align-items:center; gap:10px}
+    .avatar{width:34px; height:34px; border-radius:50%; border:1px solid var(--border)}
+    .btn{
+      cursor:pointer; border:none; outline:none; padding:10px 14px; border-radius:14px; font-weight:600;
+      background:linear-gradient(180deg,var(--brand-2),var(--brand)); color:#08110a;
+      box-shadow:0 8px 20px rgba(29,185,84,.25);
+      transition:transform .1s ease, box-shadow .2s ease, filter .2s ease;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn:disabled{opacity:0.6; cursor:not-allowed; transform:none}
+    .btn.secondary{background:var(--panel-2); color:var(--text); box-shadow:none; border:1px solid var(--border)}
+    .gate{display:grid; place-items:center; height:100%; gap:16px;}
+    .card{
+      width:min(560px,92vw); padding:22px; border-radius:var(--radius); background:var(--panel);
+      backdrop-filter:blur(14px); border:1px solid var(--border); box-shadow:var(--shadow);
+    }
+    .card h2{margin:.2rem 0 6px} .card p{margin:0; color:var(--sub)}
+    .chat{
+      display:grid; grid-template-rows:1fr auto; gap:12px; background:var(--panel); backdrop-filter:blur(14px);
+      border:1px solid var(--border); border-radius:var(--radius); padding:10px; box-shadow:var(--shadow); min-height:0;
+    }
+    .messages{overflow:auto; padding:8px; display:flex; flex-direction:column; gap:10px; scroll-behavior:smooth;}
+    .bubble{max-width:min(82%, 740px); padding:12px 14px; border-radius:16px; line-height:1.35; position:relative; word-wrap:break-word; border:1px solid var(--border);}
+    .bubble.user{align-self:flex-end; background:linear-gradient(180deg, rgba(116,255,199,.09), rgba(29,185,84,.08));}
+    .bubble.bot{align-self:flex-start; background:rgba(255,255,255,.04);}
+    .bubble pre{margin:.4rem 0 0; background:rgba(255,255,255,.05); border:1px solid var(--border); padding:.6rem .8rem; border-radius:12px; overflow:auto}
+    .bubble code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace; font-size:.9em}
+    .meta{margin-top:6px; font-size:11px; color:var(--sub)}
+    .row{display:flex; gap:10px; align-items:center}
+    .input{display:flex; gap:10px; align-items:center; padding:10px; background:var(--glass); border:1px solid var(--border); border-radius:16px;}
+    .text{flex:1; background:transparent; border:none; outline:none; color:var(--text); font-size:16px; padding:10px; min-height:22px;}
+    .send{min-width:44px}
+    .hint{font-size:12px; color:var(--sub)} .typing{font-size:12px; color:var(--sub); padding:0 6px 6px}
+    .error{color:var(--danger); font-size:12px; margin-top:8px}
+    .success{color:var(--brand); font-size:12px; margin-top:8px}
+    @media (max-width:640px){ .app{padding:10px; gap:10px} .header{padding:10px} .btn{padding:9px 12px} .bubble{max-width:92%} }
+    .messages::-webkit-scrollbar{height:10px;width:10px}
+    .messages::-webkit-scrollbar-thumb{background:rgba(255,255,255,.12); border-radius:10px}
+    .messages::-webkit-scrollbar-track{background:transparent}
+  /* Floating chat button */
+  .floating-btn{position:fixed;right:20px;bottom:20px;display:flex;flex-direction:row;align-items:center;gap:10px;z-index:12000}
+  .floating-btn button{width:56px;height:56px;border-radius:50%;border:none;display:grid;place-items:center;font-size:24px;cursor:pointer;background:linear-gradient(180deg,var(--brand-2),var(--brand));color:#08110a;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+  .floating-btn .label{font-size:12px;color:var(--text);background:rgba(0,0,0,.45);padding:6px 10px;border-radius:999px;backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.06);white-space:nowrap}
+  @media (max-width:520px){ .floating-btn{flex-direction:column;right:14px;bottom:18px;gap:6px} .floating-btn .label{font-size:11px;padding:5px 8px} .floating-btn button{width:50px;height:50px;font-size:22px} }
+  .floating-btn button:focus{outline:2px solid rgba(255,255,255,.08)}
+  </style>
+</head>
+<body>
+  <div class="app" id="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="brand">
+        <div class="dot" aria-hidden="true"></div>
+        <div>
+          <div class="title">AI mini ChatBot by Talha</div>
+          <div class="subtitle">Firebase + Gemini • Spotify-style</div>
+        </div>
+      </div>
+      <div class="profile" id="profile">
+        <button class="btn" id="loginBtn">Google Sign in</button>
+      </div>
+    </header>
+
+    <!-- Auth Gate -->
+    <section class="gate" id="gate">
+      <div class="card">
+        <h2>লগ-ইন করে শুরু করো</h2>
+        <p>Google দিয়ে সাইন-ইন করলে তোমার চ্যাট নিরাপদে Firestore-এ সেভ থাকবে।</p>
+        <div style="display:flex; gap:10px; margin-top:14px">
+          <button class="btn" id="loginBtn2">Sign in with Google</button>
+          <button class="btn secondary" id="guestBtn">Guest Mode</button>
+        </div>
+        <div id="authStatus"></div>
+        <p class="hint" style="margin-top:10px">নোট: ব্রাউজার থেকে Gemini API কল করা হচ্ছে।</p>
+      </div>
+    </section>
+
+    <!-- Chat -->
+    <main class="chat" id="chat" style="display:none">
+      <div class="messages" id="messages" aria-live="polite"></div>
+      <div class="typing" id="typing" style="display:none">Bot is typing…</div>
+
+      <form class="row input" id="form">
+        <input id="text" class="text" placeholder="তোমার বার্তা লিখো… (Ctrl/⌘ + Enter to send)" autocomplete="off" />
+        <button class="btn send" id="sendBtn" title="Send" type="submit">➤</button>
+      </form>
+      <div class="hint">Tip: Shift+Enter = নতুন লাইন</div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="subtitle" style="text-align:center">
+      © <span id="year"></span> AI mini ChatBot by Talha • Made with Firebase & Gemini
+    </footer>
+  </div>
+
+  <!-- Floating Chat Button -->
+  <div class="floating-btn" id="floatingBtn">
+    <button id="openChatBtn" title="Chat with Robot" aria-label="Chat with Robot">🤖</button>
+    <div class="label" id="floatingLabel">Chat with Robot</div>
+  </div>
+
+  <!-- App Script -->
+  <script type="module">
+    // ===== Firebase SDKs (v10 for better compatibility) =====
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
+    import {
+      getAuth, GoogleAuthProvider, signInWithPopup, signInWithRedirect,
+      onAuthStateChanged, signOut, setPersistence, browserLocalPersistence
+    } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
+    import {
+      getFirestore, collection, addDoc, query, orderBy, onSnapshot,
+      serverTimestamp
+    } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+
+    // ===== Config =====
+    const firebaseConfig = {
+      apiKey: 'AIzaSyDJ30k3wszDUdPk36g6QGNeatQzLgQdDiU',
+      authDomain: 'e-commerce-f7ca6.firebaseapp.com',
+      projectId: 'e-commerce-f7ca6',
+      storageBucket: 'e-commerce-f7ca6.firebasestorage.app',
+      messagingSenderId: '440939941324',
+      appId: '1:440939941324:web:638a952b995ae5914d6169'
+    };
+
+    // ===== Gemini API =====
+    // Replace with your real key for local testing. DO NOT commit this key publicly.
+    const GEMINI_API_KEY = "AIzaSyCaRhAKwDpEoe48pz3ODORSMhdH-BgPEng" ;
+    // Choose model you have access to; adjust if needed
+    const GEMINI_MODEL = 'gemini-1.5-flash';
+
+    // ===== Creator Profile (used by the AI system prompt) =====
+    const CREATOR_PROFILE = {
+      name: 'Monirul Hasan Talha',
+      role: 'Full-stack developer, AI hobbyist, and web creator',
+      about_bn: 'আমি মনিরুল হাসান তালহা — ফুল-স্ট্যাক ডেভেলপার, AI অনুরাগী, এবং ওয়েব প্রজেক্ট নির্মাতা। আমি ওয়েব, ফায়ারবেস, এবং ছোট AI-টুলস বানাই।',
+      about_en: 'I am Monirul Hasan Talha — a full-stack developer, AI enthusiast, and web project creator. I build web apps, Firebase-backed tools, and small AI utilities.',
+      contact: 'Email: talha@example.com (replace with real contact)',
+      website: 'https://example.com'
+    };
+
+    // ===== Init Firebase =====
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    // Set persistence
+    try {
+      await setPersistence(auth, browserLocalPersistence);
+    } catch (e) {
+      console.warn('Persistence setup failed:', e);
+    }
+
+    // ===== UI Elements =====
+    const yearEl = document.getElementById('year');
+    yearEl.textContent = new Date().getFullYear();
+
+    const gate = document.getElementById('gate');
+    const chat = document.getElementById('chat');
+    const messagesEl = document.getElementById('messages');
+    const typingEl = document.getElementById('typing');
+    const form = document.getElementById('form');
+    const text = document.getElementById('text');
+    const profile = document.getElementById('profile');
+    const sendBtn = document.getElementById('sendBtn');
+    const authStatus = document.getElementById('authStatus');
+
+    // ===== State =====
+    let currentUser = null;
+    let unsubMessages = null;
+    let sending = false;
+    let isGuestMode = false;
+    let localMessages = []; // For guest mode
+
+    // ===== LocalStorage Keys =====
+    const LS_KEYS = {
+      guestFlag: 'chatbot_guest_mode',
+      messages: 'chatbot_guest_messages'
+    };
+
+    // ===== Utility Functions =====
+    const showStatus = (msg, isError = false) => {
+      authStatus.innerHTML = `<div class="${isError ? 'error' : 'success'}">${msg}</div>`;
+      setTimeout(() => authStatus.innerHTML = '', 5000);
+    };
+
+    const fmtTime = ts => {
+      try {
+        const d = ts?.toDate ? ts.toDate() : (ts instanceof Date ? ts : new Date(ts));
+        return d.toLocaleString('bn-BD', {
+          hour: 'numeric', minute: '2-digit', hour12: true,
+          day: '2-digit', month: 'short'
+        });
+      } catch {
+        return new Date().toLocaleString('bn-BD', {
+          hour: 'numeric', minute: '2-digit', hour12: true
+        });
+      }
+    };
+
+    const escapeHTML = (str = '') => str
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+
+    const basicMarkdown = (raw = '') => {
+  let s = escapeHTML(raw); // প্রথমে escape করি
+  s = s.replace(/```([\s\S]*?)```/g, (_, code) =>
+    `<pre><code>${escapeHTML(code.trim())}</code></pre>`
+  );
+  s = s.replace(/`([^`]+)`/g, (_, code) => `<code>${escapeHTML(code)}</code>`);
+  s = s.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  s = s.replace(/\*(.*?)\*/g, '<em>$1</em>');
+  return s.replace(/\n/g, '<br/>');
+};
+
+
+    const scrollToBottom = () => {
+      setTimeout(() => {
+        messagesEl?.lastElementChild?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'end'
+        });
+      }, 100);
+    };
+
+    const setTyping = (v) => {
+      typingEl.style.display = v ? 'block' : 'none';
+      if (v) scrollToBottom();
+    };
+
+    const renderMessage = (m) => {
+      const wrap = document.createElement('div');
+      wrap.className = `bubble ${m.sender === 'user' ? 'user' : 'bot'}`;
+      const textHtml = basicMarkdown(m.text || '');
+      wrap.innerHTML = `
+        <div class="content">${textHtml}</div>
+        <div class="meta">${m.sender === 'user' ? 'You' : 'Bot'} • ${fmtTime(m.timestamp)}</div>
+      `;
+      messagesEl.appendChild(wrap);
+      scrollToBottom();
+    };
+
+    const clearMessages = () => { messagesEl.innerHTML = ''; };
+
+    // ===== LocalStorage Helpers (Guest) =====
+    const loadGuestFromStorage = () => {
+      try {
+        const raw = localStorage.getItem(LS_KEYS.messages);
+        if (!raw) return [];
+        const arr = JSON.parse(raw);
+        return Array.isArray(arr) ? arr : [];
+      } catch (e) {
+        console.warn('LocalStorage parse failed:', e);
+        return [];
+      }
+    };
+
+    const saveGuestToStorage = () => {
+      try {
+        localStorage.setItem(LS_KEYS.messages, JSON.stringify(localMessages));
+      } catch (e) {
+        console.warn('LocalStorage save failed:', e);
+      }
+    };
+
+    const enableGuestFlag = () => localStorage.setItem(LS_KEYS.guestFlag, '1');
+    const disableGuestFlag = () => localStorage.removeItem(LS_KEYS.guestFlag);
+    const hasGuestFlag = () => localStorage.getItem(LS_KEYS.guestFlag) === '1';
+
+    // ===== Gemini API =====
+    const testGeminiAPI = async () => {
+      if (!GEMINI_API_KEY || GEMINI_API_KEY === 'YOUR_GEMINI_API_KEY') return;
+      try {
+        const response = await fetch(
+          `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`,
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              contents: [{ role: 'user', parts: [{ text: 'Test message. Reply with "API working"' }] }],
+              generationConfig: { maxOutputTokens: 10 }
+            })
+          }
+        );
+        if (response.ok) { showStatus('✅ Gemini API সংযোগ সফল'); return true; }
+        showStatus('❌ Gemini API key সমস্যা', true); return false;
+      } catch (e) { showStatus('❌ Gemini API সংযোগ ব্যর্থ', true); return false; }
+    };
+
+    const askGemini = async (history) => {
+      if (!GEMINI_API_KEY || GEMINI_API_KEY === 'YOUR_GEMINI_API_KEY') {
+        return '⚠ Gemini API key পাওয়া যায়নি।';
+      }
+
+      const systemPrompt = {
+        role: 'user',
+        parts: [{
+          text: `You are a helpful AI assistant. Always be polite and concise. When the user asks about the creator, answer using this creator profile verbatim. If the user writes in Bengali, respond in Bengali; if in English, respond in English. Creator profile: Name: ${CREATOR_PROFILE.name}; Role: ${CREATOR_PROFILE.role}; About (BN): ${CREATOR_PROFILE.about_bn}; About (EN): ${CREATOR_PROFILE.about_en}; Contact: ${CREATOR_PROFILE.contact}; Website: ${CREATOR_PROFILE.website}`
+        }]
+      };
+
+      const contents = [systemPrompt].concat(
+        history.map(m => ({
+          role: m.role === 'user' ? 'user' : 'model',
+          parts: [{ text: m.text }]
+        }))
+      );
+
+      try {
+        const response = await fetch(
+          `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`,
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              contents,
+              generationConfig: {
+                temperature: 0.7,
+                maxOutputTokens: 1024,
+                topP: 0.8,
+                topK: 40
+              }
+            })
+          }
+        );
+
+        if (!response.ok) {
+          const errorText = await response.text();
+          console.error('Gemini API error:', response.status, errorText);
+
+          if (response.status === 429) {
+            return '⚠ API rate limit exceeded। কিছুক্ষণ পর চেষ্টা করুন।';
+          } else if (response.status === 403) {
+            return '⚠ API key অথবা permissions সমস্যা।';
+          }
+          return '⚠ API error। পরে চেষ্টা করুন।';
+        }
+
+        const data = await response.json();
+        const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+
+        if (!text) {
+          return 'দুঃখিত, আমি এই মুহূর্তে উত্তর দিতে পারছি না।';
+        }
+
+        return text.trim();
+      } catch (e) {
+        console.error('Gemini request failed:', e);
+        return '⚠ নেটওয়ার্ক সমস্যা। ইন্টারনেট সংযোগ চেক করুন।';
+      }
+    };
+
+    // ===== Authentication =====
+    const provider = new GoogleAuthProvider();
+    provider.setCustomParameters({
+      prompt: 'select_account',
+      hd: 'gmail.com'
+    });
+
+    const loginGoogle = async () => {
+      const btn = document.getElementById('loginBtn2');
+      if (btn) btn.disabled = true;
+
+      showStatus('Google sign-in চেষ্টা করা হচ্ছে...');
+
+      try {
+        const result = await signInWithPopup(auth, provider);
+        showStatus('✅ সফলভাবে লগ-ইন হয়েছে!');
+        disableGuestFlag();
+        return result.user;
+      } catch (error) {
+        console.error('Google sign-in error:', error);
+
+        if (error.code === 'auth/popup-blocked') {
+          showStatus('Popup blocked। Redirect চেষ্টা করা হচ্ছে...');
+          try {
+            await signInWithRedirect(auth, provider);
+          } catch (redirectError) {
+            showStatus('❌ Sign-in ব্যর্থ: ' + (redirectError.message || 'Unknown error'), true);
+          }
+        } else if (error.code === 'auth/network-request-failed') {
+          showStatus('❌ নেটওয়ার্ক সমস্যা। ইন্টারনেট সংযোগ চেক করুন।', true);
+        } else {
+          showStatus('❌ Sign-in ব্যর্থ: ' + (error.message || 'Unknown error'), true);
+        }
+      } finally {
+        if (btn) btn.disabled = false;
+      }
+    };
+
+    const loginGuest = async () => {
+      const btn = document.getElementById('guestBtn');
+      if (btn) btn.disabled = true;
+
+      showStatus('Guest mode চালু করা হচ্ছে...');
+
+      try {
+        isGuestMode = true; enableGuestFlag();
+        currentUser = {
+          uid: 'guest_' + Date.now(),
+          displayName: 'Guest User',
+          isAnonymous: true,
+          photoURL: null
+        };
+
+        gate.style.display = 'none';
+        chat.style.display = 'grid';
+  // hide floating button when chat is open
+  const floating = document.getElementById('floatingBtn'); if (floating) floating.style.display = 'none';
+        updateProfileUI();
+
+        // Load previous guest messages from localStorage
+        localMessages = loadGuestFromStorage();
+        clearMessages();
+        if (localMessages.length) localMessages.forEach(renderMessage);
+
+        renderSystemIntroIfEmpty();
+        showStatus('✅ Guest mode চালু হয়েছে!');
+      } catch (error) {
+        console.error('Guest mode error:', error);
+        showStatus('❌ Guest mode ব্যর্থ: ' + (error.message || 'Unknown error'), true);
+      } finally {
+        if (btn) btn.disabled = false;
+      }
+    };
+
+    const logout = async () => {
+      try {
+        if (isGuestMode) {
+          isGuestMode = false;
+          currentUser = null;
+          localMessages = [];
+
+          gate.style.display = 'grid';
+          chat.style.display = 'none';
+          // show floating button again when returning to gate
+          const floating = document.getElementById('floatingBtn'); if (floating) floating.style.display = '';
+          profile.innerHTML = '<button class="btn" id="loginBtn">Google Sign in</button>';
+          clearMessages();
+          bindTopButtons();
+
+          disableGuestFlag();
+          showStatus('✅ Guest mode থেকে লগ-আউট হয়েছে');
+        } else {
+          await signOut(auth);
+          showStatus('✅ সফলভাবে লগ-আউট হয়েছে');
+        }
+      } catch (e) {
+        showStatus('❌ Logout ব্যর্থ: ' + (e.message || e), true);
+      }
+    };
+
+    const updateProfileUI = () => {
+      profile.innerHTML = '';
+
+      const name = document.createElement('div');
+      name.style.fontSize = '12px';
+      name.style.color = 'var(--sub)';
+      name.textContent = currentUser?.displayName || 'Guest';
+
+      const img = document.createElement('img');
+      img.className = 'avatar';
+      img.alt = 'avatar';
+      const letter = (name.textContent?.[0] || 'G');
+      img.src = currentUser?.photoURL ||
+        `https://ui-avatars.com/api/?background=1DB954&color=0f0f10&name=${encodeURIComponent(letter)}`;
+
+      const outBtn = document.createElement('button');
+      outBtn.className = 'btn secondary';
+      outBtn.textContent = 'Log out';
+      outBtn.onclick = logout;
+
+      profile.append(img, name, outBtn);
+    };
+
+    const bindTopButtons = () => {
+      const loginBtn1 = document.getElementById('loginBtn');
+      const loginBtn2 = document.getElementById('loginBtn2');
+      const guestBtn = document.getElementById('guestBtn');
+
+      if (loginBtn1) loginBtn1.addEventListener('click', loginGoogle);
+      if (loginBtn2) loginBtn2.addEventListener('click', loginGoogle);
+      if (guestBtn) guestBtn.addEventListener('click', loginGuest);
+    };
+
+    // ===== Message Handling =====
+    const getRecentConversation = (limit = 10) => {
+      if (isGuestMode) {
+        return localMessages.slice(-limit).map(m => ({
+          role: m.sender,
+          text: m.text
+        }));
+      } else {
+        const nodes = Array.from(messagesEl.querySelectorAll('.bubble'));
+        return nodes.slice(-limit).map(n => {
+          const who = n.classList.contains('user') ? 'user' : 'bot';
+          const content = n.querySelector('.content')?.textContent || '';
+          return { role: who, text: content };
+        });
+      }
+    };
+
+    const persistGuestPush = (msg) => {
+      localMessages.push(msg); saveGuestToStorage();
+    };
+
+    const saveMessage = async (messageData) => {
+      if (isGuestMode) {
+        const msg = {
+          ...messageData,
+          timestamp: new Date(),
+          id: Date.now() + Math.random()
+        };
+        persistGuestPush(msg);
+        renderMessage(msg);
+      } else {
+        try {
+          await addDoc(collection(db, 'chats', currentUser.uid, 'messages'), {
+            ...messageData,
+            timestamp: serverTimestamp()
+          });
+        } catch (error) {
+          console.error('Firestore save error:', error);
+          renderMessage({
+            ...messageData,
+            timestamp: new Date()
+          });
+        }
+      }
+    };
+
+    const setupMessagesListener = () => {
+      if (isGuestMode) {
+        return;
+      }
+
+      if (!currentUser?.uid) return;
+      if (unsubMessages) unsubMessages();
+
+      const q = query(
+        collection(db, 'chats', currentUser.uid, 'messages'),
+        orderBy('timestamp', 'asc')
+      );
+
+      unsubMessages = onSnapshot(q,
+        (snapshot) => {
+          clearMessages();
+          snapshot.forEach(doc => {
+            const data = doc.data();
+            renderMessage(data);
+          });
+        },
+        (error) => {
+          console.error('Firestore listener error:', error);
+          showStatus('⚠ Message sync সমস্যা। Local mode এ চালু হচ্ছে।', true);
+          isGuestMode = true;
+          enableGuestFlag();
+        }
+      );
+    };
+
+    const renderSystemIntroIfEmpty = () => {
+      if (messagesEl.childElementCount === 0 && (!localMessages || localMessages.length === 0)) {
+        const introMsg = {
+          sender: 'bot',
+          text: 'হাই! আমি AI mini ChatBot by Talha। আমাকে যেকোনো প্রশ্ন করতে পারো। 🤖',
+          timestamp: new Date()
+        };
+
+        if (isGuestMode) {
+          persistGuestPush(introMsg);
+          renderMessage(introMsg);
+        } else {
+          renderMessage(introMsg);
+        }
+      }
+    };
+
+    // ===== Creator-Question Detector (hard rule → reply "talha") =====
+    const asksCreator = (t = '') => {
+      const s = (t || '').toLowerCase();
+      return [
+        'who made you', 'who created you', 'who built you',
+        'তোমাকে কে বান', 'কে বানাইছে', 'কে বানিয়েছে', 'তোমার নির্মাতা কে', 'তোমাকে কে তৈরি করেছে', 'কে তৈরি করেছে'
+      ].some(key => s.includes(key));
+    };
+
+    // Enhanced creator answer builder (returns BN or EN depending on user input language)
+    const buildCreatorAnswer = (userText) => {
+      const isBn = /[\u0980-\u09FF]/.test(userText);
+      if (isBn) {
+        return `${CREATOR_PROFILE.about_bn} নাম: ${CREATOR_PROFILE.name}। পেশা: ${CREATOR_PROFILE.role}। যোগাযোগ: ${CREATOR_PROFILE.contact}। ওয়েবসাইট: ${CREATOR_PROFILE.website}`;
+      }
+      return `${CREATOR_PROFILE.about_en} Name: ${CREATOR_PROFILE.name}. Role: ${CREATOR_PROFILE.role}. Contact: ${CREATOR_PROFILE.contact}. Website: ${CREATOR_PROFILE.website}`;
+    };
+
+    // ===== Send Message =====
+    const sendMessage = async (userText) => {
+      if (sending || !userText?.trim()) return;
+
+      sending = true;
+      sendBtn.disabled = true;
+      text.value = '';
+
+      try {
+        // Save user message
+        await saveMessage({
+          text: userText.trim(),
+          sender: 'user',
+          userId: currentUser?.uid || 'guest'
+        });
+
+        setTyping(true);
+
+        // Hard-coded reply for creator question (enhanced)
+        if (asksCreator(userText.trim())) {
+          const reply = buildCreatorAnswer(userText.trim());
+          await saveMessage({ text: reply, sender: 'bot', userId: currentUser?.uid || 'guest' });
+          return;
+        }
+
+        // Get conversation history
+        const history = getRecentConversation(8);
+        history.push({ role: 'user', text: userText.trim() });
+
+        // Get AI response
+        const reply = await askGemini(history);
+
+        // Save bot response
+        await saveMessage({
+          text: reply,
+          sender: 'bot',
+          userId: currentUser?.uid || 'guest'
+        });
+
+      } catch (error) {
+        console.error('Send message error:', error);
+        showStatus('❌ Message পাঠানো ব্যর্থ: ' + (error.message || error), true);
+      } finally {
+        setTyping(false);
+        sending = false;
+        sendBtn.disabled = false;
+        text.focus();
+      }
+    };
+
+    // ===== Event Listeners =====
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const userText = text.value;
+      if (!currentUser && !isGuestMode) {
+        showStatus('❌ প্রথমে লগ-ইন করুন বা Guest mode চালু করুন', true);
+        return;
+      }
+      await sendMessage(userText);
+    });
+
+    text.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+        form.requestSubmit();
+      }
+    });
+
+    // ===== Firebase Auth State =====
+    onAuthStateChanged(auth, (user) => {
+      if (user && !isGuestMode) {
+        currentUser = user;
+        gate.style.display = 'none';
+        chat.style.display = 'grid';
+        // hide floating button when authenticated and chat visible
+        const floating = document.getElementById('floatingBtn'); if (floating) floating.style.display = 'none';
+        updateProfileUI();
+        setupMessagesListener();
+        renderSystemIntroIfEmpty();
+      } else if (!isGuestMode) {
+        currentUser = null;
+        if (unsubMessages) unsubMessages();
+        gate.style.display = 'grid';
+        chat.style.display = 'none';
+        // show floating button when back to gate
+        const floating = document.getElementById('floatingBtn'); if (floating) floating.style.display = '';
+        profile.innerHTML = '<button class="btn" id="loginBtn">Google Sign in</button>';
+        clearMessages();
+        bindTopButtons();
+      }
+    });
+
+    // ===== Auto-resume Guest Session on Reload (FIX for localStorage not showing) =====
+    const boot = async () => {
+      bindTopButtons();
+      // If guest flag exists, auto-enter guest and render saved messages
+      if (hasGuestFlag()) {
+        isGuestMode = true;
+        currentUser = { uid: 'guest_resume', displayName: 'Guest User', isAnonymous: true, photoURL: null };
+        gate.style.display = 'none';
+        chat.style.display = 'grid';
+        updateProfileUI();
+        localMessages = loadGuestFromStorage();
+        clearMessages();
+        if (localMessages.length) { localMessages.forEach(renderMessage); }
+        renderSystemIntroIfEmpty();
+      }
+      // Optional: self-test API (does not block UI)
+      setTimeout(testGeminiAPI, 800);
+    };
+
+    // ===== Initialize =====
+    boot();
+
+    // Floating button behaviour
+    const openChatBtn = document.getElementById('openChatBtn');
+    const floatingBtn = document.getElementById('floatingBtn');
+    if (openChatBtn) {
+      openChatBtn.addEventListener('click', () => {
+        // If gate visible, try to enter guest mode automatically
+        if (gate.style.display !== 'none') {
+          // Trigger guest mode for quick chat
+          loginGuest();
+        }
+  // show chat and focus input
+  gate.style.display = 'none';
+  chat.style.display = 'grid';
+  // hide floating button when chat opens
+  const floating = document.getElementById('floatingBtn'); if (floating) floating.style.display = 'none';
+  text.focus();
+        // small pulse effect
+        openChatBtn.animate([{ transform: 'scale(1)' }, { transform: 'scale(0.96)' }, { transform: 'scale(1)' }], { duration: 220 });
+      });
+    }
+
+    // Ensure messages are saved before unload (extra safety)
+    window.addEventListener('beforeunload', () => { if (isGuestMode) saveGuestToStorage(); });
+  </script>
+</body>
+</html>

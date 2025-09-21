@@ -478,6 +478,79 @@
           transform: translateX(-50%);
         }
       }
+
+    
+      .chatbot-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg,#1ed760,#1DB954);
+    color: #fff;
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 18px rgba(0,0,0,.35);
+    cursor: pointer;
+    z-index: 1000;
+    transition: transform .2s ease;
+  }
+  .chatbot-btn:hover { transform: scale(1.07); }
+
+  .chatbot-overlay {
+    position: fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background: rgba(0,0,0,.55);
+    backdrop-filter: blur(4px);
+    display:none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+  }
+  .chatbot-window {
+    width: min(92%, 460px);
+    height: 78%;
+    background: #121314;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,.6);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: popup .25s ease;
+  }
+  @keyframes popup {
+    from {transform: scale(.85); opacity:.4}
+    to {transform: scale(1); opacity:1}
+  }
+  .chatbot-header {
+    background: linear-gradient(90deg,#1DB954,#1ed760);
+    padding: 14px 18px;
+    color:#08110a;
+    font-weight:700;
+    font-size:16px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .chatbot-header button {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #08110a;
+  }
+  .chatbot-iframe {
+    border: none;
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    background: #0f0f10;
+  }
+
     </style>
   </head>
 
@@ -948,5 +1021,32 @@
         appearOnScroll.observe(fader);
       });
     </script>
+
+    <!-- Floating Chat Button -->
+<div class="chatbot-btn" id="chatbotBtn">🤖</div>
+
+<!-- Overlay + Chatbot -->
+<div class="chatbot-overlay" id="chatbotOverlay">
+  <div class="chatbot-window">
+    <div class="chatbot-header">
+      AI ChatBot
+      <button id="closeChat">✕</button>
+    </div>
+    <!-- এখানে তোমার chatbot.html লোড হবে -->
+    <iframe src="chatbot.html" class="chatbot-iframe"></iframe>
+  </div>
+</div>
+
+<script>
+  const btn = document.getElementById('chatbotBtn');
+  const overlay = document.getElementById('chatbotOverlay');
+  const closeBtn = document.getElementById('closeChat');
+
+  btn.addEventListener('click', ()=> overlay.style.display='flex');
+  closeBtn.addEventListener('click', ()=> overlay.style.display='none');
+  overlay.addEventListener('click', (e)=>{
+    if(e.target===overlay) overlay.style.display='none';
+  });
+</script>
   </body>
 </html>
