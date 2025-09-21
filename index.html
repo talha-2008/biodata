@@ -551,6 +551,26 @@
     background: #0f0f10;
   }
 
+  /* Drawer and Hamburger styles */
+  .hamburger{display:none;background:transparent;border:none;cursor:pointer;padding:8px;border-radius:8px}
+  .hamburger .bar{display:block;width:22px;height:2px;background:var(--dark-color);margin:4px 0;transition:transform .3s ease,opacity .3s ease}
+  .hamburger.open .bar1{transform:translateY(6px) rotate(45deg)}
+  .hamburger.open .bar2{opacity:0}
+  .hamburger.open .bar3{transform:translateY(-6px) rotate(-45deg)}
+
+  .drawer{position:fixed;top:0;right:-280px;width:280px;height:100%;background:rgba(12,14,15,0.7);backdrop-filter:blur(12px);box-shadow:-10px 0 30px rgba(0,0,0,0.6);padding:28px;z-index:1500;transition:right 0.4s ease}
+  .drawer.open{right:0}
+  .drawer ul{list-style:none;padding:0;margin:40px 0}
+  .drawer li{margin-bottom:18px}
+  .drawer a{display:block;color:var(--light-color);font-size:16px;padding:10px;border-radius:8px;transition:background .2s,color .2s}
+  .drawer a:hover{background:rgba(255,255,255,0.03);color:var(--accent)}
+
+  @media (max-width: 768px){
+    .nav-links{display:none}
+    .hamburger{display:block}
+    .navbar{justify-content:space-between}
+  }
+
     </style>
   </head>
 
@@ -568,10 +588,27 @@
           <li><a href="#Info">Info </a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#contact">Contact</a></li>
-          <li><a href="./blog.html">Blog</a></li>
+          <li><a href="#blog">Blog</a></li>
         </ul>
+        <!-- Hamburger (hidden on desktop) -->
+        <button id="hamburger-menu" class="hamburger" aria-label="Open menu">
+          <span class="bar bar1"></span>
+          <span class="bar bar2"></span>
+          <span class="bar bar3"></span>
+        </button>
       </nav>
     </header>
+
+    <!-- Drawer menu (hidden by default, slides in from right) -->
+    <div class="drawer" id="drawer-menu" aria-hidden="true">
+      <ul>
+        <li><a class="drawer-link" href="#about">About</a></li>
+        <li><a class="drawer-link" href="#Info">Info</a></li>
+        <li><a class="drawer-link" href="#projects">Projects</a></li>
+        <li><a class="drawer-link" href="#contact">Contact</a></li>
+        <li><a class="drawer-link" href="#blog">Blog</a></li>
+      </ul>
+    </div>
 
     <section id="about" class="section hero">
       <div class="container bio-card">
@@ -1047,6 +1084,28 @@
   overlay.addEventListener('click', (e)=>{
     if(e.target===overlay) overlay.style.display='none';
   });
+</script>
+
+<script>
+  // Drawer toggle
+  const hamburger = document.getElementById('hamburger-menu');
+  const drawer = document.getElementById('drawer-menu');
+  if(hamburger && drawer){
+    hamburger.addEventListener('click', ()=>{
+      hamburger.classList.toggle('open');
+      drawer.classList.toggle('open');
+      drawer.setAttribute('aria-hidden', drawer.classList.contains('open') ? 'false' : 'true');
+    });
+
+    // Close drawer when any drawer link is clicked
+    drawer.querySelectorAll('.drawer-link').forEach(link=>{
+      link.addEventListener('click', ()=>{
+        hamburger.classList.remove('open');
+        drawer.classList.remove('open');
+        drawer.setAttribute('aria-hidden','true');
+      });
+    });
+  }
 </script>
   </body>
 </html>
