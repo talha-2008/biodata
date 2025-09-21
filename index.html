@@ -1,574 +1,930 @@
 <!DOCTYPE html>
 <html lang="bn">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Monirul Hasan Talha - Portfolio & Web Developer</title>
+    <meta
+      name="google-site-verification"
+      content="BXwLT463eBoDiPkBdn7-imSfnw4TzBoZJHq_8YouYoo"
+    />
+    <meta
+      name="description"
+      content="Monirul Hasan Talha's official portfolio. I am a web developer specializing in HTML, CSS, and JavaScript. Explore my projects and skills here."
+    />
+    <meta
+      name="keywords"
+      content="Monirul Hasan Talha, portfolio, web developer, student, HTML, CSS, JavaScript, projects, Bogura, Bangladesh, programmer"
+    />
+    <meta name="author" content="Monirul Hasan Talha" />
+    <link rel="canonical" href="https://talha-2008.github.io/biodata/" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-    <meta name="google-site-verification" content="BXwLT463eBoDiPkBdn7-imSfnw4TzBoZJHq_8YouYoo" />
-    <meta name="description" content="Monirul Hasan Talha's official portfolio. I am a web developer specializing in HTML, CSS, and JavaScript. Explore my projects and skills here.">
-    <meta name="keywords" content="Monirul Hasan Talha, portfolio, web developer, student, HTML, CSS, JavaScript, projects, Bogura, Bangladesh, programmer">
-    <meta name="author" content="Monirul Hasan Talha">
-    <link rel="canonical" href="https://talha-2008.github.io/biodata/">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet" />
-    
     <style>
-        :root {
-            --bg1: #08131a;
-            --bg2: #0f2a2b;
-            --accent: #1db954;
-            --card-radius: 18px;
-            --light-color: #e9f1f0;
-            --dark-color: #dff7ea;
-            --box-shadow: 0 8px 40px rgba(2, 8, 10, 0.6);
-        }
+      :root {
+        --bg1: #08131a;
+        --bg2: #0f2a2b;
+        --accent: #1db954;
+        --card-radius: 18px;
+        --light-color: #e9f1f0;
+        --dark-color: #dff7ea;
+        --box-shadow: 0 8px 40px rgba(2, 8, 10, 0.6);
+      }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        html {
-            scroll-behavior: smooth;
-        }
+      html {
+        scroll-behavior: smooth;
+      }
 
-        body {
-            font-family: 'Poppins', 'Noto Sans Bengali', sans-serif;
-            min-height: 100vh;
-            background: radial-gradient(1000px 600px at 10% 10%, rgba(29, 185, 84, 0.06), transparent),
-                        radial-gradient(800px 500px at 90% 90%, rgba(30, 215, 96, 0.04), transparent),
-                        linear-gradient(180deg, var(--bg1), var(--bg2));
-            color: var(--light-color);
-            line-height: 1.6;
-        }
+      body {
+        font-family: 'Poppins', 'Noto Sans Bengali', sans-serif;
+        min-height: 100vh;
+        background: radial-gradient(
+            1000px 600px at 10% 10%,
+            rgba(29, 185, 84, 0.06),
+            transparent
+          ),
+          radial-gradient(
+            800px 500px at 90% 90%,
+            rgba(30, 215, 96, 0.04),
+            transparent
+          ),
+          linear-gradient(180deg, var(--bg1), var(--bg2));
+        color: var(--light-color);
+        line-height: 1.6;
+      }
 
-        a {
-            text-decoration: none;
-            color: var(--accent);
-            transition: color 0.3s ease;
-        }
+      a {
+        text-decoration: none;
+        color: var(--accent);
+        transition: color 0.3s ease;
+      }
 
-        a:hover {
-            color: #19a04b;
-        }
+      a:hover {
+        color: #19a04b;
+      }
 
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+      .container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
 
-        .section {
-            padding: 80px 0;
-            position: relative;
-            z-index: 2;
-        }
+      .section {
+        padding: 80px 0;
+        position: relative;
+        z-index: 2;
+      }
 
-        .section-heading {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 40px;
-            position: relative;
-            color: var(--light-color);
-        }
-        
-        .section-heading::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent), #66d17a);
-            margin: 10px auto 0;
-            border-radius: 2px;
-        }
-        
-        .header {
-            width: 100%;
-            padding: 20px 0;
-            z-index: 1000;
-            background: rgba(8, 19, 26, 0.4);
-            backdrop-filter: blur(8px);
-            position: relative;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-            border-radius: 0 0 18px 18px;
-        }
+      .section-heading {
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 40px;
+        position: relative;
+        color: var(--light-color);
+      }
 
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+      .section-heading::after {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: linear-gradient(90deg, var(--accent), #66d17a);
+        margin: 10px auto 0;
+        border-radius: 2px;
+      }
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--light-color);
-            transition: color 0.3s ease;
-        }
+      .header {
+        width: 100%;
+        padding: 20px 0;
+        z-index: 1000;
+        background: rgba(8, 19, 26, 0.4);
+        backdrop-filter: blur(8px);
+        position: relative;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        border-radius: 0 0 18px 18px;
+      }
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
 
-        .nav-links a {
-            font-weight: 600;
-            color: var(--dark-color);
-            position: relative;
-            transition: color 0.3s ease;
-        }
+      .logo img {
+        height: 40px;
+        transition: transform 0.3s ease;
+      }
+      
+      .logo img:hover {
+        transform: scale(1.1);
+      }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent);
-            bottom: -5px;
-            left: 0;
-            transition: width 0.3s ease;
-        }
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
 
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        
-        .hero {
-            padding: 100px 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            flex-direction: column;
-        }
+      .nav-links a {
+        font-weight: 600;
+        color: var(--dark-color);
+        position: relative;
+        transition: color 0.3s ease;
+      }
 
+      .nav-links a::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background-color: var(--accent);
+        bottom: -5px;
+        left: 0;
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .hero {
+        padding: 100px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        flex-direction: column;
+      }
+
+      .bio-card {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.03),
+          rgba(255, 255, 255, 0.02)
+        );
+        border-radius: var(--card-radius);
+        padding: 40px;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(10px) saturate(1.1);
+        box-shadow: var(--box-shadow);
+        display: flex;
+        gap: 40px;
+        align-items: flex-start;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+
+      .bio-card.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .avatar img {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 6px solid rgba(255, 255, 255, 0.06);
+        box-shadow: 0 8px 30px rgba(29, 185, 84, 0.06),
+          inset 0 2px 6px rgba(255, 255, 255, 0.02);
+        transition: transform 0.3s ease;
+      }
+
+      .avatar img:hover {
+        transform: scale(1.05) rotate(5deg);
+      }
+
+      .content h1 {
+        font-size: 2.5rem;
+        margin: 0 0 10px 0;
+        letter-spacing: 0.6px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 700;
+        color: var(--light-color);
+      }
+      .content h2 {
+        font-size: 1.5rem;
+        margin: 24px 0 10px 0;
+        color: #cfeee0;
+        border-bottom: 1px dashed rgba(255, 255, 255, 0.03);
+        padding-bottom: 6px;
+        font-weight: 600;
+      }
+
+      p,
+      li {
+        color: var(--dark-color);
+        opacity: 0.95;
+        font-size: 1rem;
+      }
+
+      .badge {
+        display: inline-block;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: linear-gradient(
+          90deg,
+          rgba(29, 185, 84, 0.14),
+          rgba(29, 185, 84, 0.06)
+        );
+        color: var(--accent);
+        font-weight: 700;
+        font-size: 13px;
+      }
+
+      .social-links {
+        margin-top: 20px;
+        display: flex;
+        gap: 20px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+
+      .social-links.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .social-links a {
+        font-size: 1.5rem;
+        color: var(--dark-color);
+        transition: transform 0.3s ease, color 0.3s ease;
+      }
+
+      .social-links a:hover {
+        transform: scale(1.1);
+        color: var(--accent);
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+      }
+
+      .project-card {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.03),
+          rgba(255, 255, 255, 0.02)
+        );
+        padding: 30px;
+        border-radius: var(--card-radius);
+        text-align: center;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        box-shadow: var(--box-shadow);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      }
+
+      .project-card.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .project-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        color: var(--light-color);
+      }
+
+      .project-card p {
+        font-size: 0.95rem;
+      }
+
+      .project-card .btn {
+        margin-top: 20px;
+        display: inline-block;
+        background-color: var(--accent);
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+      }
+
+      .project-card .btn:hover {
+        background-color: #19a04b;
+        transform: translateY(-2px);
+      }
+
+      .skills-card {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .skills-card h3 {
+        font-size: 1.2rem;
+        color: var(--accent);
+        margin-top: 15px;
+        border-bottom: 1px dashed rgba(255, 255, 255, 0.03);
+        padding-bottom: 5px;
+      }
+
+      @media (max-width: 768px) {
         .bio-card {
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.02));
-            border-radius: var(--card-radius);
-            padding: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            backdrop-filter: blur(10px) saturate(1.1);
-            box-shadow: var(--box-shadow);
-            display: flex;
-            gap: 40px;
-            align-items: flex-start;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          gap: 20px;
+          padding: 20px;
         }
-        
-        .bio-card.show {
-            opacity: 1;
-            transform: translateY(0);
+        .avatar {
+          order: -1;
         }
-
-        .avatar img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 6px solid rgba(255, 255, 255, 0.06);
-            box-shadow: 0 8px 30px rgba(29, 185, 84, 0.06), inset 0 2px 6px rgba(255, 255, 255, 0.02);
-            transition: transform 0.3s ease;
-        }
-        
-        .avatar img:hover {
-            transform: scale(1.05) rotate(5deg);
-        }
-
         .content h1 {
-            font-size: 2.5rem;
-            margin: 0 0 10px 0;
-            letter-spacing: 0.6px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-weight: 700;
-            color: var(--light-color);
+          font-size: 1.8rem;
+          justify-content: center;
         }
-        .content h2 {
-            font-size: 1.5rem;
-            margin: 24px 0 10px 0;
-            color: #cfeee0;
-            border-bottom: 1px dashed rgba(255, 255, 255, 0.03);
-            padding-bottom: 6px;
-            font-weight: 600;
-        }
-
-        p, li {
-            color: var(--dark-color);
-            opacity: 0.95;
-            font-size: 1rem;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 6px 10px;
-            border-radius: 999px;
-            background: linear-gradient(90deg, rgba(29, 185, 84, 0.14), rgba(29, 185, 84, 0.06));
-            color: var(--accent);
-            font-weight: 700;
-            font-size: 13px;
-        }
-
         .social-links {
-            margin-top: 20px;
-            display: flex;
-            gap: 20px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+          justify-content: center;
         }
-        
-        .social-links.show {
-            opacity: 1;
-            transform: translateY(0);
+        .nav-links {
+          display: none;
         }
-        
-        .social-links a {
-            font-size: 1.5rem;
-            color: var(--dark-color);
-            transition: transform 0.3s ease, color 0.3s ease;
+        .navbar {
+          justify-content: center;
         }
-        
-        .social-links a:hover {
-            transform: scale(1.1);
-            color: var(--accent);
+        .section {
+          padding: 60px 0;
         }
+      }
+      /* Footer CSS (from new 3rd.html) */
+      :root {
+        --footer-bg: #071116;
+        --footer-text-color: #b0c4d2;
+      }
 
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
+      .footer {
+        background: var(--footer-bg);
+        color: var(--footer-text-color);
+        padding: 60px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+      }
 
-        .project-card {
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.02));
-            padding: 30px;
-            border-radius: var(--card-radius);
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            box-shadow: var(--box-shadow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-        }
-        
-        .project-card.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
+      .footer-container {
+        display: grid;
+        grid-template-columns: repeat(
+          auto-fit,
+          minmax(200px, 1fr)
+        ); /* responsive columns */
+        gap: 40px;
+        padding-bottom: 40px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
 
-        .project-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: var(--light-color);
-        }
-        
-        .project-card p {
-            font-size: 0.95rem;
-        }
+      .footer-col h4 {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        color: var(--light-color);
+        font-weight: 600;
+        position: relative;
+      }
 
-        .project-card .btn {
-            margin-top: 20px;
-            display: inline-block;
-            background-color: var(--accent);
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
+      .footer-col h4::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        background-color: var(--accent);
+        height: 2px;
+        width: 40px;
+      }
 
-        .project-card .btn:hover {
-            background-color: #19a04b;
-            transform: translateY(-2px);
-        }
-        
-        .skills-card {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
+      .footer-col ul {
+        list-style: none;
+        padding: 0;
+      }
 
-        .skills-card h3 {
-            font-size: 1.2rem;
-            color: var(--accent);
-            margin-top: 15px;
-            border-bottom: 1px dashed rgba(255, 255, 255, 0.03);
-            padding-bottom: 5px;
-        }
+      .footer-col ul li:not(:last-child) {
+        margin-bottom: 10px;
+      }
 
-        @media (max-width: 768px) {
-            .bio-card {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                gap: 20px;
-                padding: 20px;
-            }
-            .avatar {
-                order: -1;
-            }
-            .content h1 {
-                font-size: 1.8rem;
-                justify-content: center;
-            }
-            .social-links {
-                justify-content: center;
-            }
-            .nav-links {
-                display: none;
-            }
-            .navbar {
-                justify-content: center;
-            }
-            .section {
-                padding: 60px 0;
-            }
+      .footer-col ul li a {
+        font-size: 1rem;
+        color: var(--footer-text-color);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: block;
+      }
+
+      .footer-col ul li a:hover {
+        color: var(--accent);
+        padding-left: 8px;
+      }
+
+      .footer-bottom {
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      .footer-bottom p {
+        font-size: 0.9rem;
+        color: var(--footer-text-color);
+      }
+
+      .footer-social-links {
+        margin-top: 15px;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .footer-social-links a {
+        color: var(--footer-text-color);
+        font-size: 1.2rem;
+        transition: transform 0.3s ease;
+      }
+
+      .footer-social-links a:hover {
+        color: var(--accent);
+        transform: translateY(-3px);
+      }
+
+      @media (max-width: 768px) {
+        .footer-container {
+          grid-template-columns: 1fr;
+          text-align: center;
         }
+        .footer-col h4::before {
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
     </style>
-</head>
-<body>
+  </head>
 
+  <body>
     <header class="header">
-        <nav class="navbar container">
-            <div class="logo">MONIRUL HASAN TALHA</div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+      <nav class="navbar container">
+        <div class="logo">
+          <img
+            src="https://i.postimg.cc/1Xk9bjC2/Copilot-20250921-112342.png"
+            alt="Logo"
+          />
+        </div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#Info">Info </a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
     </header>
 
     <section id="about" class="section hero">
-        <div class="container bio-card">
-            <div class="avatar">
-                <img src="https://i.postimg.cc/R05hBXqF/Whats-App-Image-2025-08-31-at-09-52-25-9ed8b8d0.jpg" alt="Monirul's photo">
-            </div>
-            <div class="content">
-                <h1 class="title"><span class="badge">Student</span> MONIRUL HASAN TALHA</h1>
-                <div class="meta">
-                     <br>
-                    <h2>Personal Information</h2>
-                    <p><strong>পিতার নাম:</strong>আব্দুল মান্নান সরকার</p>
-                    <p><strong>মাতার নাম:</strong>সাইয়েদাতুল হুরে</p>
-                    <p><strong>জন্ম তারিখ:</strong>৯ মার্চ ২০০৮</p>
-                    <p><strong>জাতীয়তা:</strong> বাংলাদেশী</p>
-                    <p><strong>বর্তমান ঠিকানা:</strong> কালিতলা,বগুড়া</p>
-                    <p><strong>স্থায়ী ঠিকানা:</strong>গোবিন্দগঞ্জ,গাইবান্ধা</p>
-                    
-                    <br>
-​                 A passionate and motivated student with a knack for web development and a keen interest in learning new technologies. I enjoy building creative projects that solve real-world problems. I'm always looking for opportunities to grow and improve my skills.<br><br><strong>Intermediate</strong> · BIAM Model School and College, Bogura</div>
-                <p></p>
-                <div class="social-links">
-                    <a href="https://www.facebook.com/talha171219" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://wa.me/qr/B2VPVRBPNQAZF1" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                    <a href="https://t.me/talha91108" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
-                    <a href="https://github.com/talha-171219" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                </div>
-            </div>
+      <div class="container bio-card">
+        <div class="avatar">
+          <img
+            src="https://i.postimg.cc/R05hBXqF/Whats-App-Image-2025-08-31-at-09-52-25-9ed8b8d0.jpg"
+            alt="Monirul's photo"
+          />
         </div>
+        <div class="content">
+          <h1 class="title">
+            <span class="badge">Student</span> MONIRUL HASAN TALHA
+          </h1>
+          <div class="meta">
+            <br />
+            <h2>Personal Information</h2>
+            <p><strong>পিতার নাম:</strong>আব্দুল মান্নান সরকার</p>
+            <p><strong>মাতার নাম:</strong>সাইয়েদাতুল হুরে</p>
+            <p><strong>জন্ম তারিখ:</strong>৯ মার্চ ২০০৭</p>
+            <p><strong>জাতীয়তা:</strong> বাংলাদেশী</p>
+            <p><strong>বর্তমান ঠিকানা:</strong> কালিতলা,বগুড়া</p>
+            <p><strong>স্থায়ী ঠিকানা:</strong>গোবিন্দগঞ্জ,গাইবান্ধা</p>
+
+            <br />
+            A passionate and motivated student with a knack for web development
+            and a keen interest in learning new technologies. I enjoy building
+            creative projects that solve real-world problems. I'm always looking
+            for opportunities to grow and improve my skills.<br /><br /><strong
+              >Intermediate</strong
+            >
+            · BIAM Model School and College, Bogura
+          </div>
+          <p></p>
+          <div class="social-links">
+            <a
+              href="https://www.facebook.com/talha171219"
+              target="_blank"
+              aria-label="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://wa.me/qr/B2VPVRBPNQAZF1"
+              target="_blank"
+              aria-label="WhatsApp"
+              ><i class="fab fa-whatsapp"></i
+            ></a>
+            <a
+              href="https://t.me/talha91108"
+              target="_blank"
+              aria-label="Telegram"
+              ><i class="fab fa-telegram-plane"></i
+            ></a>
+            <a
+              href="https://github.com/talha-171219"
+              target="_blank"
+              aria-label="GitHub"
+              ><i class="fab fa-github"></i
+            ></a>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section id="skills" class="section">
-        <div class="container">
-            <h2 class="section-heading">আমার দক্ষতা</h2>
-            <div class="skills-card bio-card">
-                <h3>Skills</h3>
-                <p>
-                    <strong>Web Development:</strong> HTML, CSS, JavaScript (Basic)
-                </p>
-                <p>
-                    <strong>Software:</strong> MS Office (Word, Excel, PowerPoint)
-                </p>
-                <p>
-                    <strong>Other:</strong> Problem Solving, Team Collaboration.
-                </p>
-                <p>
-                    <strong>Language Skills:</strong> বাংলা, Hindi,English
-                </p>
-                <h2>শিক্ষা</h2>
-                <p>
-                    <strong>Inter 2nd Year:</strong> BIAM Model school and College, Bogura.
-                </p>
-                <p>
-                    <strong>Dakhil:</strong> Tamirul Millat Kamil Madrasah, Tongi.
-                </p>
-                <h2>ভবিষ্যৎ লক্ষ্য</h2>
-                <p>আগে পাশ করি ইন্টার😐</p>
-            </div>
+    <section id="Info" class="section">
+      <div class="container">
+        <h2 class="section-heading">Other Info</h2>
+        <div class="skills-card bio-card">
+          <h3>Skills</h3>
+          <p>
+            <strong>Web Development:</strong> HTML, CSS, JavaScript (Basic)
+          </p>
+          <p><strong>Software:</strong> MS Office (Word, Excel, PowerPoint)</p>
+          <p><strong>Other:</strong> Problem Solving, Team Collaboration.</p>
+          <p><strong>Language Skills:</strong> বাংলা, Hindi,English</p>
+          <h3>শিক্ষা</h3>
+          <p>
+            <strong>Inter 2nd Year:</strong> BIAM Model school and College,
+            Bogura.
+          </p>
+          <p>
+            <strong>Dakhil:</strong> Tamirul Millat Kamil Madrasah, Tongi.
+          </p>
+          <h3>ভবিষ্যৎ লক্ষ্য</h3>
+          <p>আগে পাশ করি ইন্টার😐</p>
         </div>
+      </div>
     </section>
 
     <section id="projects" class="section">
-        <div class="container">
-            <h2 class="section-heading">আমার প্রজেক্টস</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3>📝 To-Do App</h3>
-                    <p>একটি সহজ To-Do অ্যাপ্লিকেশন যা আপনার দৈনন্দিন কাজগুলোকে ট্র্যাক করতে সাহায্য করে।</p>
-                    <a href="https://talha-171219.github.io/TO-DO-list-2-/" target="_blank" class="btn">View Project</a>
-                </div>
-                <div class="project-card">
-                    <h3>🌦 Weather App</h3>
-                    <p>আপনার বর্তমান অবস্থানের আবহাওয়ার তথ্য দেখানোর জন্য একটি ইন্টারেক্টিভ ওয়েব অ্যাপ।</p>
-                    <a href="https://talha-171219.github.io/weather-app/" target="_blank" class="btn">View Project</a>
-                </div>
-                <div class="project-card">
-                    <h3>💬 Chat App</h3>
-                    <p>এটি একটি ডেমো চ্যাট অ্যাপ যা মেসেজিং এর মূল কার্যকারিতা তুলে ধরে।</p>
-                    <a href="https://talha-171219.github.io/apk-chat/" target="_blank" class="btn">View Project</a>
-                </div>
-                <div class="project-card">
-                    <h3>🤖 AI Mini Bot</h3>
-                    <p>একটি ছোট এআই চ্যাটবট যা ব্যবহারকারীদের সাধারণ প্রশ্নের উত্তর দিতে পারে।</p>
-                    <a href="https://talha388204.github.io/AI-CHATBOT/full-error%20free" target="_blank" class="btn">View Project</a>
-                </div>
-                <div class="project-card">
-                    <h3>🛒 E-Commerce (Demo)</h3>
-                    <p>একটি ডেমো ই-কমার্স ওয়েবসাইট যা একটি অনলাইন স্টোরের মৌলিক কাঠামো দেখায়।</p>
-                    <a href="https://talha388204.github.io/E-Commerce-demo-by-talha/#/" target="_blank" class="btn">View Project</a>
-                </div>
-                <div class="project-card">
-                    <h3>🌐 Simple Social App</h3>
-                    <p>একটি সাধারণ সোশ্যাল মিডিয়া প্ল্যাটফর্মের ডেমো যা প্রোফাইল এবং পোস্ট প্রদর্শন করে।</p>
-                    <a href="https://talha-171219.github.io/social-media/" target="_blank" class="btn">View Project</a>
-                </div>
-                <div class="project-card">
-                    <h3>📅 Event Splitter</h3>
-                    <p>ইভেন্ট বা সময়কে সহজে ভাগ করার জন্য একটি ইউটিলিটি অ্যাপ।</p>
-                    <a href="https://talha-c731xh03xl.mgx.world/" target="_blank" class="btn">View Project</a>
-                </div>
-                <div class="project-card">
-                    <h3>🧮 Demo Calculator</h3>
-                    <p>সাধারণ গণনার জন্য একটি সহজ ক্যালকুলেটর।</p>
-                    <a href="https://talha-171219.github.io/casio-calculator.talha/" target="_blank" class="btn">View Project</a>
-                </div>
-                <div class="project-card">
-                    <h3>👤 Personal Chat</h3>
-                    <p>একটি ডেমো চ্যাট অ্যাপ যা ছোট পরিসরে যোগাযোগের জন্য তৈরি।</p>
-                    <a href="https://talha-171219.github.io/lite-chat-app.minha/" target="_blank" class="btn">View Project</a>
-                </div>
-                <div class="project-card">
-                    <h3>🎥 SS Recorder for PC</h3>
-                    <p>পিসির জন্য একটি স্ক্রিন শট বা স্ক্রিন রেকর্ডার।</p>
-                    <a href="https://talha388204.github.io/webRec/" target="_blank" class="btn">View Project</a>
-                </div>
-                <div class="project-card">
-                    <h3>📱 FB Lite (Personal)</h3>
-                    <p>ফেসবুকের মতো দেখতে একটি ছোট সোশ্যাল মিডিয়া ডেমো।</p>
-                    <a href="https://talha388204.github.io/great-social-app/" target="_blank" class="btn">View Project</a>
-                </div>
-                <div class="project-card">
-                    <h3>💰 Money-Tracking</h3>
-                    <p>দৈনন্দিন আয়-ব্যয় ট্র্যাক করার জন্য একটি সহজ অ্যাপ।</p>
-                    <a href="https://talha388204.github.io/money-tracker/" target="_blank" class="btn">View Project</a>
-                </div>
-                <div class="project-card">
-                    <h3>⏲ Focus-Timer</h3>
-                    <p>মনোযোগ বাড়ানোর জন্য একটি Pomodoro টাইমার।</p>
-                    <a href="https://talha388204.github.io/focus-timer/timer-2" target="_blank" class="btn">View Project</a>
-                </div>
-                <div class="project-card">
-                    <h3>🔒 Lock-Diary</h3>
-                    <p>পাসওয়ার্ড দ্বারা সুরক্ষিত একটি ব্যক্তিগত ডায়েরি অ্যাপ।</p>
-                    <a href="https://talha388204.github.io/lock-diary/" target="_blank" class="btn">View Project</a>
-                </div>
-                <div class="project-card">
-                    <h3>⏳ Countdown App</h3>
-                    <p>গুরুত্বপূর্ণ ইভেন্টের জন্য একটি কাউন্টডাউন টাইমার।</p>
-                    <a href="https://talha-388204.github.io/countdown-app/" target="_blank" class="btn">View Project</a>
-                </div>
-                <div class="project-card">
-                    <h3>💊 MediQueue</h3>
-                    <p>ঔষধের নাম এবং ব্যবহারবিধি ট্র্যাক করার জন্য একটি স্বাস্থ্য অ্যাপ।</p>
-                    <a href="https://talha388204.github.io/MediQueue/" target="_blank" class="btn">View Project</a>
-                </div>
-                <div class="project-card">
-                    <h3>💸 Bkash (Demo)</h3>
-                    <p>বিকাশের মতো দেখতে একটি ডেমো পেমেন্ট অ্যাপ।</p>
-                    <a href="https://talha388204.github.io/bkash-demo-/" target="_blank" class="btn">View Project</a>
-                </div>
-                <div class="project-card">
-                    <h3>❤ Hello Priyotoma</h3>
-                    <p>একটি সাধারণ রোম্যান্টিক মেসেজিং অ্যাপ।</p>
-                    <a href="https://talha388204.github.io/hello-priyotoma/" target="_blank" class="btn">View Project</a>
-                </div>
-                <div class="project-card">
-                    <h3>🧭 Crowd-Navigation</h3>
-                    <p>অফলাইন ক্রাউড নেভিগেশনের জন্য একটি ম্যাপ-ভিত্তিক অ্যাপ।</p>
-                    <a href="https://talha388204.github.io/hello-priyotoma/nev.html" target="_blank" class="btn">View Project</a>
-                </div>
-                <div class="project-card">
-                    <h3>🌏 World-map</h3>
-                    <p>একটি ম্যাপ যা বিভিন্ন দেশের তথ্য প্রদর্শন করে।</p>
-                    <a href="https://talha-388204.github.io/World-map/" target="_blank" class="btn">View Project</a>
-                </div>
-                <div class="project-card">
-                    <h3>🍳 CaptionCraft</h3>
-                    <p>ছবির জন্য ক্যাপশন তৈরি করার একটি সহজ টুল।</p>
-                    <a href="https://talha-2008.github.io/Caption-hub/" target="_blank" class="btn">View Project</a>
-                </div>
-            </div>
+      <div class="container">
+        <h2 class="section-heading">My Projects</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <h3>📝 To-Do App</h3>
+            <p>
+              একটি সহজ To-Do অ্যাপ্লিকেশন যা আপনার দৈনন্দিন কাজগুলোকে ট্র্যাক
+              করতে সাহায্য করে।
+            </p>
+            <a
+              href="https://talha-171219.github.io/TO-DO-list-2-/"
+              target="_blank"
+              class="btn"
+              >View Project</a
+            >
+          </div>
+          <div class="project-card">
+            <h3>🌦 Weather App</h3>
+            <p>আপনার বর্তমান অবস্থানের আবহাওয়ার তথ্য দেখানোর জন্য একটি ইন্টারেক্টিভ ওয়েব অ্যাপ।</p>
+            <a
+              href="https://talha-171219.github.io/weather-app/"
+              target="_blank"
+              class="btn"
+              >View Project</a
+            >
+          </div>
+          <div class="project-card">
+            <h3>💬 Chat App</h3>
+            <p>এটি একটি ডেমো চ্যাট অ্যাপ যা মেসেজিং এর মূল কার্যকারিতা তুলে ধরে।</p>
+            <a
+              href="https://talha-171219.github.io/apk-chat/"
+              target="_blank"
+              class="btn"
+              >View Project</a
+            >
+          </div>
+          <div class="project-card">
+            <h3>🤖 AI Mini Bot</h3>
+            <p>একটি ছোট এআই চ্যাটবট যা ব্যবহারকারীদের সাধারণ প্রশ্নের উত্তর দিতে পারে।</p>
+            <a
+              href="https://talha388204.github.io/AI-CHATBOT/full-error%20free"
+              target="_blank"
+              class="btn"
+              >View Project</a
+            >
+          </div>
+          <div class="project-card">
+            <h3>🛒 E-Commerce (Demo)</h3>
+            <p>একটি ডেমো ই-কমার্স ওয়েবসাইট যা একটি অনলাইন স্টোরের মৌলিক কাঠামো দেখায়।</p>
+            <a
+              href="https://talha388204.github.io/E-Commerce-demo-by-talha/#/"
+              target="_blank"
+              class="btn"
+              >View Project</a
+            >
+          </div>
+          <div class="project-card">
+            <h3>🌐 Simple Social App</h3>
+            <p>
+              একটি সাধারণ সোশ্যাল মিডিয়া প্ল্যাটফর্মের ডেমো যা প্রোফাইল এবং পোস্ট প্রদর্শন
+              করে।
+            </p>
+            <a
+              href="https://talha-171219.github.io/social-media/"
+              target="_blank"
+              class="btn"
+              >View Project</a
+            >
+          </div>
+          <div class="project-card">
+            <h3>📅 Event Splitter</h3>
+            <p>ইভেন্ট বা সময়কে সহজে ভাগ করার জন্য একটি ইউটিলিটি অ্যাপ।</p>
+            <a
+              href="https://talha-c731xh03xl.mgx.world/"
+              target="_blank"
+              class="btn"
+              >View Project</a
+            >
+          </div>
+          <div class="project-card">
+            <h3>🧮 Demo Calculator</h3>
+            <p>সাধারণ গণনার জন্য একটি সহজ ক্যালকুলেটর।</p>
+            <a
+              href="https://talha-171219.github.io/casio-calculator.talha/"
+              target="_blank"
+              class="btn"
+              >View Project</a
+            >
+          </div>
+          <div class="project-card">
+            <h3>👤 Personal Chat</h3>
+            <p>একটি ডেমো চ্যাট অ্যাপ যা ছোট পরিসরে যোগাযোগের জন্য তৈরি।</p>
+            <a
+              href="https://talha-171219.github.io/lite-chat-app.minha/"
+              target="_blank"
+              class="btn"
+              >View Project</a
+            >
+          </div>
+          <div class="project-card">
+            <h3>🎥 SS Recorder for PC</h3>
+            <p>পিসির জন্য একটি স্ক্রিন শট বা স্ক্রিন রেকর্ডার।</p>
+            <a
+              href="https://talha388204.github.io/webRec/"
+              target="_blank"
+              class="btn"
+              >View Project</a
+            >
+          </div>
+          <div class="project-card">
+            <h3>📱 FB Lite (Personal)</h3>
+            <p>ফেসবুকের মতো দেখতে একটি ছোট সোশ্যাল মিডিয়া ডেমো।</p>
+            <a
+              href="https://talha388204.github.io/great-social-app/"
+              target="_blank"
+              class="btn"
+              >View Project</a
+            >
+          </div>
+          <div class="project-card">
+            <h3>💰 Money-Tracking</h3>
+            <p>দৈনন্দিন আয়-ব্যয় ট্র্যাক করার জন্য একটি সহজ অ্যাপ।</p>
+            <a
+              href="https://talha388204.github.io/money-tracker/"
+              target="_blank"
+              class="btn"
+              >View Project</a
+            >
+          </div>
+          <div class="project-card">
+            <h3>⏲ Focus-Timer</h3>
+            <p>মনোযোগ বাড়ানোর জন্য একটি Pomodoro টাইমার।</p>
+            <a
+              href="https://talha388204.github.io/focus-timer/timer-2"
+              target="_blank"
+              class="btn"
+              >View Project</a
+            >
+          </div>
+          <div class="project-card">
+            <h3>🔒 Lock-Diary</h3>
+            <p>পাসওয়ার্ড দ্বারা সুরক্ষিত একটি ব্যক্তিগত ডায়েরি অ্যাপ।</p>
+            <a
+              href="https://talha388204.github.io/lock-diary/"
+              target="_blank"
+              class="btn"
+              >View Project</a
+            >
+          </div>
+          <div class="project-card">
+            <h3>⏳ Countdown App</h3>
+            <p>গুরুত্বপূর্ণ ইভেন্টের জন্য একটি কাউন্টডাউন টাইমার।</p>
+            <a
+              href="https://talha-388204.github.io/countdown-app/"
+              target="_blank"
+              class="btn"
+              >View Project</a
+            >
+          </div>
+          <div class="project-card">
+            <h3>💊 MediQueue</h3>
+            <p>ঔষধের নাম এবং ব্যবহারবিধি ট্র্যাক করার জন্য একটি স্বাস্থ্য অ্যাপ।</p>
+            <a
+              href="https://talha388204.github.io/MediQueue/"
+              target="_blank"
+              class="btn"
+              >View Project</a
+            >
+          </div>
+          <div class="project-card">
+            <h3>💸 Bkash (Demo)</h3>
+            <p>বিকাশের মতো দেখতে একটি ডেমো পেমেন্ট অ্যাপ।</p>
+            <a
+              href="https://talha388204.github.io/bkash-demo-/"
+              target="_blank"
+              class="btn"
+              >View Project</a
+            >
+          </div>
+          <div class="project-card">
+            <h3>❤ Hello Priyotoma</h3>
+            <p>একটি সাধারণ রোম্যান্টিক মেসেজিং অ্যাপ।</p>
+            <a
+              href="https://talha388204.github.io/hello-priyotoma/"
+              target="_blank"
+              class="btn"
+              >View Project</a
+            >
+          </div>
+          <div class="project-card">
+            <h3>🧭 Crowd-Navigation</h3>
+            <p>অফলাইন ক্রাউড নেভিগেশনের জন্য একটি ম্যাপ-ভিত্তিক অ্যাপ।</p>
+            <a
+              href="https://talha388204.github.io/hello-priyotoma/nev.html"
+              target="_blank"
+              class="btn"
+              >View Project</a
+            >
+          </div>
+          <div class="project-card">
+            <h3>🌏 World-map</h3>
+            <p>একটি ম্যাপ যা বিভিন্ন দেশের তথ্য প্রদর্শন করে।</p>
+            <a
+              href="https://talha-388204.github.io/World-map/"
+              target="_blank"
+              class="btn"
+              >View Project</a
+            >
+          </div>
+          <div class="project-card">
+            <h3>🍳 CaptionCraft</h3>
+            <p>ছবির জন্য ক্যাপশন তৈরি করার একটি সহজ টুল।</p>
+            <a
+              href="https://talha-2008.github.io/Caption-hub/"
+              target="_blank"
+              class="btn"
+              >View Project</a
+            >
+          </div>
         </div>
+      </div>
     </section>
 
     <section id="contact" class="section">
-        <div class="container">
-            <h2 class="section-heading">যোগাযোগ করুন</h2>
-            <div class="bio-card" style="text-align: center;">
-                <p>আমার সাথে যোগাযোগ করতে চাইলে নিচের তথ্যগুলো ব্যবহার করতে পারেন:</p>
-                <p style="margin-top: 15px;"><i class="fas fa-phone-alt"></i> <strong>Phone:</strong> 01909751433</p>
-                <p><i class="fas fa-envelope"></i> <strong>Email:</strong> monirulhasantalha@gmail.com</p>
-            </div>
+      <div class="container">
+        <h2 class="section-heading">Contact Us</h2>
+        <div class="bio-card" style="text-align: center;">
+          <p>আমার সাথে যোগাযোগ করতে চাইলে নিচের তথ্যগুলো ব্যবহার করতে পারেন:</p>
+          <p style="margin-top: 15px;">
+            <i class="fas fa-phone-alt"></i> <strong>Phone:</strong> 01909751433
+          </p>
+          <p>
+            <i class="fas fa-envelope"></i> <strong>Email:</strong>
+            monirulhasantalha@gmail.com
+          </p>
         </div>
+      </div>
     </section>
 
-    <footer class="footer" style="padding: 30px 0; text-align: center;">
-        <div class="container">
-            <p>&copy; 2025 MONIRUL HASAN TALHA. All rights reserved.</p>
+    <footer class="footer">
+      <div class="container footer-container">
+        <div class="footer-col">
+          <h4>About Me</h4>
+          <ul>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#Info">Other Info</a></li>
+            <li><a href="#">My Journey</a></li>
+            <li><a href="#">Testimonials</a></li>
+          </ul>
         </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#projects">Web Development</a></li>
+            <li><a href="#">Custom Projects</a></li>
+            <li><a href="#">Portfolio Design</a></li>
+            <li><a href="#">Mentorship</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal & Policy</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Disclaimer</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Get in Touch</h4>
+          <ul>
+            <li><a href="https://wa.me/qr/B2VPVRBPNQAZF1" target="_blank">WhatsApp</a></li>
+            <li><a href="https://t.me/talha91108" target="_blank">Telegram</a></li>
+            <li><a href="mailto:monirulhasantalha@gmail.com">Email</a></li>
+            <li><a href="#contact">Contact Form</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 MONIRUL HASAN TALHA. All rights reserved.</p>
+        <div class="footer-social-links">
+          <a
+            href="https://www.facebook.com/talha171219"
+            target="_blank"
+            aria-label="Facebook"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a
+            href="https://wa.me/qr/B2VPVRBPNQAZF1"
+            target="_blank"
+            aria-label="WhatsApp"
+            ><i class="fab fa-whatsapp"></i
+          ></a>
+          <a
+            href="https://t.me/talha91108"
+            target="_blank"
+            aria-label="Telegram"
+            ><i class="fab fa-telegram-plane"></i
+          ></a>
+          <a
+            href="https://github.com/talha-171219"
+            target="_blank"
+            aria-label="GitHub"
+            ><i class="fab fa-github"></i
+          ></a>
+        </div>
+      </div>
     </footer>
-    
+
     <script>
-        // Animate elements on scroll
-        const faders = document.querySelectorAll('.bio-card, .social-links, .project-card');
+      // Animate elements on scroll
+      const faders = document.querySelectorAll(
+        '.bio-card, .social-links, .project-card'
+      );
 
-        const appearOptions = {
-            threshold: 0.2, // When 20% of the element is visible
-            rootMargin: "0px 0px -50px 0px" // Start a bit early
-        };
+      const appearOptions = {
+        threshold: 0.2, // When 20% of the element is visible
+        rootMargin: '0px 0px -50px 0px', // Start a bit early
+      };
 
-        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) {
-                    return;
-                } else {
-                    entry.target.classList.add('show');
-                    appearOnScroll.unobserve(entry.target);
-                }
-            });
-        }, appearOptions);
-
-        faders.forEach(fader => {
-            appearOnScroll.observe(fader);
+      const appearOnScroll = new IntersectionObserver(function(
+        entries,
+        appearOnScroll
+      ) {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) {
+            return;
+          } else {
+            entry.target.classList.add('show');
+            appearOnScroll.unobserve(entry.target);
+          }
         });
+      },
+      appearOptions);
+
+      faders.forEach(fader => {
+        appearOnScroll.observe(fader);
+      });
     </script>
-</body>
-</html> 
-
-
+  </body>
+</html>
