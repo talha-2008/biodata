@@ -171,6 +171,35 @@
         flex-direction: column;
       }
 
+      .animated-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+ background: linear-gradient(90deg, #38bdf8, #6366f1, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
       .bio-card {
         background: linear-gradient(
           180deg,
@@ -643,9 +672,9 @@
           />
         </div>
         <div class="content">
-          <h1 class="title">
+          <h2 class="animated-name">
             <span class="badge">Student</span> MONIRUL HASAN TALHA
-          </h1>
+          </h2>
           <div class="meta">
             <br />
             <h2>Personal Information</h2>
@@ -725,224 +754,226 @@
       <div class="container">
         <h2 class="section-heading">My Projects</h2>
         <div class="projects-grid">
+
           <div class="project-card">
-            <h3>📝 To-Do App</h3>
-            <p>
-              একটি সহজ To-Do অ্যাপ্লিকেশন যা আপনার দৈনন্দিন কাজগুলোকে ট্র্যাক
-              করতে সাহায্য করে।
-            </p>
-            <a
-              href="https://talha-171219.github.io/TO-DO-list-2-/"
-              target="_blank"
-              class="btn"
-              >View Project</a
-            >
+            <h3><i class="fas fa-book-open"></i>Al Quran </h3>
+            <p>Quran reading app with audio,dua,tafsir and easy browsing.</p>
+            <a href="https://talha-171219.github.io/quran-v2/" target="_blank" class="btn">View Project</a>
           </div>
+
           <div class="project-card">
             <h3>🌦 Weather App</h3>
             <p>আপনার বর্তমান অবস্থানের আবহাওয়ার তথ্য দেখানোর জন্য একটি ইন্টারেক্টিভ ওয়েব অ্যাপ।</p>
-            <a
-              href="https://talha-171219.github.io/weather-app/"
-              target="_blank"
-              class="btn"
-              >View Project</a
-            >
+            <a href="https://talha-171219.github.io/weather-app/" target="_blank" class="btn">View Project</a>
           </div>
-          <div class="project-card">
-            <h3>💬 Chat App</h3>
-            <p>এটি একটি ডেমো চ্যাট অ্যাপ যা মেসেজিং এর মূল কার্যকারিতা তুলে ধরে।</p>
-            <a
-              href="https://talha-171219.github.io/apk-chat/"
-              target="_blank"
-              class="btn"
-              >View Project</a
-            >
-          </div>
+
           <div class="project-card">
             <h3>🤖 AI Mini Bot</h3>
             <p>একটি ছোট এআই চ্যাটবট যা ব্যবহারকারীদের সাধারণ প্রশ্নের উত্তর দিতে পারে।</p>
-            <a
-              href="https://talha388204.github.io/AI-CHATBOT/full-error%20free"
-              target="_blank"
-              class="btn"
-              >View Project</a
-            >
+            <a href="https://talha388204.github.io/AI-CHATBOT/full-error%20free" target="_blank" class="btn">View Project</a>
           </div>
+
+          <div class="project-card">
+            <h3><i class="fas fa-graduation-cap"></i> Online Course Platform</h3>
+            <p>Course listing and simple lesson viewer for online learning demos.</p>
+            <a href="https://talha-388204.github.io/ONLINE-COURSE-PLATFORM/" target="_blank" class="btn">View Project</a>
+          </div>
+
           <div class="project-card">
             <h3>🛒 E-Commerce (Demo)</h3>
-            <p>(Wait for loading this website) একটি ডেমো ই-কমার্স ওয়েবসাইট যা একটি অনলাইন স্টোরের মৌলিক কাঠামো দেখায়।</p>
-            <a
-              href="https://talha388204.github.io/E-Commerce-demo-by-talha/#/"
-              target="_blank"
-              class="btn"
-              >View Project</a
-            >
+            <p>ডেমো ই-কমার্স সাইট — প্রোডাক্ট ব্রাউজিং ও কার্ট ফ্লো দেখায়।</p>
+            <a href="https://talha388204.github.io/E-Commerce-demo-by-talha/#/" target="_blank" class="btn">View Project</a>
           </div>
+
+          <div class="project-card">
+            <h3>📱 Facebook (Personal)</h3>
+            <p>ফেসবুক স্টাইল ডেমো — সাইন-আপ, প্রোফাইল ও পোস্ট প্রদর্শন।</p>
+            <a href="https://talha388204.github.io/great-social-app/" target="_blank" class="btn">View Project</a>
+          </div>
+
           <div class="project-card">
             <h3>🌐 Simple Social App</h3>
-            <p>
-              একটি সাধারণ সোশ্যাল মিডিয়া প্ল্যাটফর্মের ডেমো যা প্রোফাইল এবং পোস্ট প্রদর্শন
-              করে।
-            </p>
-            <a
-              href="https://talha-171219.github.io/social-media/"
-              target="_blank"
-              class="btn"
-              >View Project</a
-            >
+            <p>একটি সাধারণ সোশ্যাল মিডিয়া ডেমো — প্রোফাইল ও পোষ্ট প্রদর্শন করে।</p>
+            <a href="https://talha-171219.github.io/social-media/" target="_blank" class="btn">View Project</a>
           </div>
-          <div class="project-card">
-            <h3>📅 Event Splitter</h3>
-            <p>ইভেন্ট বা সময়কে সহজে ভাগ করার জন্য একটি ইউটিলিটি অ্যাপ।</p>
-            <a
-              href="https://talha-c731xh03xl.mgx.world/"
-              target="_blank"
-              class="btn"
-              >View Project</a
-            >
-          </div>
-          <div class="project-card">
-            <h3>🧮 Demo Calculator</h3>
-            <p>সাধারণ গণনার জন্য একটি সহজ ক্যালকুলেটর।</p>
-            <a
-              href="https://talha-171219.github.io/casio-calculator.talha/"
-              target="_blank"
-              class="btn"
-              >View Project</a
-            >
-          </div>
+
           <div class="project-card">
             <h3>👤 Personal Chat</h3>
-            <p>একটি ডেমো চ্যাট অ্যাপ যা ছোট পরিসরে যোগাযোগের জন্য তৈরি।</p>
-            <a
-              href="https://talha-171219.github.io/lite-chat-app.minha/"
-              target="_blank"
-              class="btn"
-              >View Project</a
-            >
+            <p>লাইটওয়েট চ্যাট অ্যাপ ডেমো — প্রাইভেট মেসেজিং ইন্টারফেস।</p>
+            <a href="https://talha-171219.github.io/lite-chat-app.minha/" target="_blank" class="btn">View Project</a>
           </div>
+
+          <div class="project-card">
+            <h3>💬 Chat App</h3>
+            <p>মেসেজিং ডেমো — রিয়েলটাইম চ্যাট বেসিক ফিচার দেখায়।</p>
+            <a href="https://talha-171219.github.io/apk-chat/" target="_blank" class="btn">View Project</a>
+          </div>
+
+          <div class="project-card">
+            <h3>📅 Event Splitter</h3>
+            <p>ইভেন্ট বা সময় সহজে ভাগ করার জন্য একটি ইউটিলিটি টুল।</p>
+            <a href="https://talha-c731xh03xl.mgx.world/" target="_blank" class="btn">View Project</a>
+          </div>
+
           <div class="project-card">
             <h3>🎥 SS Recorder for PC</h3>
-            <p>পিসির জন্য একটি স্ক্রিন শট বা স্ক্রিন রেকর্ডার।</p>
-            <a
-              href="https://talha388204.github.io/webRec/"
-              target="_blank"
-              class="btn"
-              >View Project</a
-            >
+            <p>পিসির জন্য স্ক্রিনশট/রেকর্ডার ডেমো।</p>
+            <a href="https://talha388204.github.io/webRec/" target="_blank" class="btn">View Project</a>
           </div>
-          <div class="project-card">
-            <h3>📱 FB Lite (Personal)</h3>
-            <p>ফেসবুকের মতো দেখতে একটি ছোট সোশ্যাল মিডিয়া ডেমো।</p>
-            <a
-              href="https://talha388204.github.io/great-social-app/"
-              target="_blank"
-              class="btn"
-              >View Project</a
-            >
-          </div>
+
           <div class="project-card">
             <h3>💰 Money-Tracking</h3>
             <p>দৈনন্দিন আয়-ব্যয় ট্র্যাক করার জন্য একটি সহজ অ্যাপ।</p>
-            <a
-              href="https://talha388204.github.io/money-tracker/"
-              target="_blank"
-              class="btn"
-              >View Project</a
-            >
+            <a href="https://talha388204.github.io/money-tracker/" target="_blank" class="btn">View Project</a>
           </div>
+
           <div class="project-card">
             <h3>⏲ Focus-Timer</h3>
-            <p>মনোযোগ বাড়ানোর জন্য একটি Pomodoro টাইমার।</p>
-            <a
-              href="https://talha388204.github.io/focus-timer/timer-2"
-              target="_blank"
-              class="btn"
-              >View Project</a
-            >
+            <p>Pomodoro টাইমার — মনোযোগ বাড়ানোর জন্য।</p>
+            <a href="https://talha388204.github.io/focus-timer/timer-2" target="_blank" class="btn">View Project</a>
           </div>
+
           <div class="project-card">
-            <h3>🔒 Lock-Diary</h3>
-            <p>পাসওয়ার্ড দ্বারা সুরক্ষিত একটি ব্যক্তিগত ডায়েরি অ্যাপ।</p>
-            <a
-              href="https://talha388204.github.io/lock-diary/"
-              target="_blank"
-              class="btn"
-              >View Project</a
-            >
+            <h3><i class="fas fa-music"></i> Song App</h3>
+            <p>A lightweight music player demo to play and browse songs.</p>
+            <a href="https://talha-2008.github.io/song-app/" target="_blank" class="btn">View Project</a>
           </div>
+
           <div class="project-card">
-            <h3>⏳ Countdown App</h3>
-            <p>গুরুত্বপূর্ণ ইভেন্টের জন্য একটি কাউন্টডাউন টাইমার।</p>
-            <a
-              href="https://talha-388204.github.io/countdown-app/"
-              target="_blank"
-              class="btn"
-              >View Project</a
-            >
+            <h3><i class="fas fa-globe"></i> MGX Demo</h3>
+            <p>Hosted demo app / playground on mgx.world showcasing small experiments.</p>
+            <a href="https://talha-dhchttrobui.mgx.world" target="_blank" class="btn">View Project</a>
           </div>
+
           <div class="project-card">
-            <h3>💊 MediQueue</h3>
-            <p>ঔষধের নাম এবং ব্যবহারবিধি ট্র্যাক করার জন্য একটি স্বাস্থ্য অ্যাপ।</p>
-            <a
-              href="https://talha388204.github.io/MediQueue/"
-              target="_blank"
-              class="btn"
-              >View Project</a
-            >
+            <h3><i class="fas fa-image"></i> Image Converter</h3>
+            <p>Convert images between formats and perform basic edits in the browser.</p>
+            <a href="https://talha-388204.github.io/Image-converter/" target="_blank" class="btn">View Project</a>
           </div>
+
           <div class="project-card">
-            <h3>💸 Bkash (Demo)</h3>
-            <p>বিকাশের মতো দেখতে একটি ডেমো পেমেন্ট অ্যাপ।</p>
-            <a
-              href="https://talha388204.github.io/bkash-demo-/"
-              target="_blank"
-              class="btn"
-              >View Project</a
-            >
+            <h3><i class="fas fa-qrcode"></i> QR Code Generator</h3>
+            <p>Generate QR codes for URLs or text and download them as images.</p>
+            <a href="https://talha-388204.github.io/QR-Code-generator/" target="_blank" class="btn">View Project</a>
           </div>
+
           <div class="project-card">
-            <h3>❤ Hello Priyotoma</h3>
-            <p>একটি সাধারণ রোম্যান্টিক মেসেজিং অ্যাপ।</p>
-            <a
-              href="https://talha388204.github.io/hello-priyotoma/"
-              target="_blank"
-              class="btn"
-              >View Project</a
-            >
+            <h3><i class="fas fa-video"></i>Video Call (2 person)</h3>
+            <p>A demo showing basic voice & video call functionality in the browser.</p>
+            <a href="https://talha-171219.github.io/Voice-call/video" target="_blank" class="btn">View Project</a>
           </div>
+
           <div class="project-card">
-            <h3>🧭 Crowd-Navigation</h3>
-            <p>অফলাইন ক্রাউড নেভিগেশনের জন্য একটি ম্যাপ-ভিত্তিক অ্যাপ।</p>
-            <a
-              href="https://talha388204.github.io/hello-priyotoma/nev.html"
-              target="_blank"
-              class="btn"
-              >View Project</a
-            >
+            <h3><i class="fas fa-phone"></i> Voice Call(2 person)</h3>
+            <p>Simple voice call demo to test audio streaming between peers.</p>
+            <a href="https://talha-171219.github.io/Voice-call/" target="_blank" class="btn">View Project</a>
           </div>
+
           <div class="project-card">
-            <h3>🌏 World-map</h3>
-            <p>একটি ম্যাপ যা বিভিন্ন দেশের তথ্য প্রদর্শন করে।</p>
-            <a
-              href="https://talha-388204.github.io/World-map/"
-              target="_blank"
-              class="btn"
-              >View Project</a
-            >
+            <h3><i class="fas fa-chalkboard"></i> Smartboard</h3>
+            <p>Interactive whiteboard for drawing and collaboration in the browser.</p>
+            <a href="https://talha-171219.github.io/Smartboard/" target="_blank" class="btn">View Project</a>
           </div>
+
           <div class="project-card">
-            <h3>🍳 CaptionCraft</h3>
-            <p>ছবির জন্য ক্যাপশন তৈরি করার একটি সহজ টুল।</p>
-            <a
-              href="https://talha-2008.github.io/Caption-hub/"
-              target="_blank"
-              class="btn"
-              >View Project</a
-            >
+            <h3><i class="fas fa-dice"></i> Pocket Dice</h3>
+            <p>Virtual dice roller — handy for games and decision making.</p>
+            <a href="https://talha-171219.github.io/pocket-dice/" target="_blank" class="btn">View Project</a>
           </div>
+
+          <div class="project-card">
+            <h3><i class="fas fa-wallet"></i> Personal Finance</h3>
+            <p>Income & expense tracker to help manage daily finances.</p>
+            <a href="https://talha-171219.github.io/personal-finance-/" target="_blank" class="btn">View Project</a>
+          </div>
+
+          <div class="project-card">
+            <h3><i class="fas fa-lock"></i> Lock Diary</h3>
+            <p>Password-protected diary for personal notes and journaling.</p>
+            <a href="https://talha-171219.github.io/Lock-diary/" target="_blank" class="btn">View Project</a>
+          </div>
+
+          <div class="project-card">
+            <h3><i class="fas fa-exclamation-triangle"></i> SOS App</h3>
+            <p>Emergency alert app to quickly contact predefined helpers.</p>
+            <a href="https://talha-2008.github.io/SOS-APP/" target="_blank" class="btn">View Project</a>
+          </div>
+
+          <div class="project-card">
+            <h3><i class="fas fa-map"></i> Land360</h3>
+            <p>জমি জমার তথ্য দেখার জন্য একটি ইন্টারেক্টিভ অ্যাপ।</p>
+            <a href="https://talha-2008.github.io/land360/" target="_blank" class="btn">View Project</a>
+          </div>
+
+          <div class="project-card">
+            <h3><i class="fas fa-file-invoice-dollar"></i> Invoice Creator</h3>
+            <p>Create and export invoices quickly from a simple form interface.</p>
+            <a href="https://talha-388204.github.io/Invoice-creator/" target="_blank" class="btn">View Project</a>
+          </div>
+
+          <div class="project-card">
+            <h3><i class="fas fa-code"></i> Web Playground</h3>
+            <p>A small playground with UI experiments and frontend snippets.</p>
+            <a href="https://talha-388204.github.io/-web-playground/" target="_blank" class="btn">View Project</a>
+          </div>
+
+          
+
+          <div class="project-card">
+            <h3><i class="fas fa-rocket"></i>HSC Quiz app</h3>
+            <p>Interactive quiz application for HSC students.</p>
+            <a href="https://app-lime-panda.reflex.run/" target="_blank" class="btn">View Project</a>
+          </div>
+
+          <div class="project-card">
+            <h3><i class="fas fa-chart-line"></i> Result Dashboard</h3>
+            <p>Dashboard demo for displaying results, metrics and simple charts.</p>
+            <a href="https://resultdashboard-reflex-navy-ocean.reflex.run/" target="_blank" class="btn">View Project</a>
+          </div>
+
+          <div class="project-card">
+            <h3><i class="fas fa-gamepad"></i> Pixel Runner</h3>
+            <p>Browser-based pixel art runner game — jump, run and collect points.</p>
+            <a href="https://talha-2008.github.io/pixel-runner/" target="_blank" class="btn">View Project</a>
+          </div>
+
+          <div class="project-card">
+            <h3><i class="fas fa-gamepad"></i> Tic Tac Toe</h3>
+            <p>Classic tic-tac-toe game you can play against a friend or the computer.</p>
+            <a href="https://talha-2008.github.io/tic-tac-toe-/" target="_blank" class="btn">View Project</a>
+          </div>
+
+          <div class="project-card">
+            <h3><i class="fas fa-play-circle"></i> Media Player</h3>
+            <p>Audio/video player demo with custom controls and playlists.</p>
+            <a href="https://talha-2008.github.io/media-player/" target="_blank" class="btn">View Project</a>
+          </div>
+
+          <div class="project-card">
+            <h3><i class="fas fa-language"></i> Translator App</h3>
+            <p>Simple text translator demo to convert between languages.</p>
+            <a href="https://talha-2008.github.io/Translator-app/" target="_blank" class="btn">View Project</a>
+          </div>
+
+          <div class="project-card">
+            <h3></h3>
+            <p></p>
+            <a href="" target="_blank" class="btn">View Project</a>
+          </div>
+
+          <div class="project-card">
+            <h3></h3>
+            <p></p>
+            <a href="" target="_blank" class="btn">View Project</a>
+          </div>
+
+          <div class="project-card">
+            <h3></h3>
+            <p></p>
+            <a href="" target="_blank" class="btn">View Project</a>
+          </div>
+
         </div>
-      </div>
     </section>
     
      <!-- Blog section added: appears after Projects and before Contact -->
@@ -958,6 +989,7 @@
             <a href="./blog.html" class="btn" style="display:inline-block;padding:12px 18px;border-radius:8px;background:var(--accent);color:#fff;font-weight:700;">Visit Blog</a>
             <a href="./timeline.html" class="btn" style="display:inline-block;padding:12px 18px;border-radius:8px;background:#4b7bec;color:#fff;font-weight:700;">Timeline</a>
             <a href="./travel-diary.html" class="btn" style="display:inline-block;padding:12px 18px;border-radius:8px;background:#fc5c7d;color:#fff;font-weight:700;">Travel Diary</a>
+            <a href="./apk-file.html" class="btn" style="display:inline-block;padding:12px 18px;border-radius:8px;background:#34b2d9;color:#fff;font-weight:700;">APK File</a>
           </div>
         </div>
       </div>
