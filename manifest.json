@@ -1,0 +1,21 @@
+{
+  "name": "Monirul Hasan Talha — Portfolio",
+  "short_name": "Talha",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0f2a2b",
+  "theme_color": "#1db954",
+  "icons": [
+    {
+      "src": "https://i.postimg.cc/1Xk9bjC2/Copilot-20250921-112342.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://i.postimg.cc/1Xk9bjC2/Copilot-20250921-112342.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "scope": "./"
+}
