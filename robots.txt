@@ -1,1 +1,3 @@
+User-agent: *
+Allow: /
 Sitemap: https://talha-2008.github.io/biodata/sitemap.xml
