@@ -1,0 +1,404 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="bn" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Meta Content (Preserved) -->
+    <title>Monirul Hasan Talha - Portfolio & Web Developer</title>
+    <meta name="google-site-verification" content="BXwLT463eBoDiPkBdn7-imSfnw4TzBoZJHq_8YouYoo" />
+    <meta name="description" content="Monirul Hasan Talha's official portfolio. I am a web developer specializing in HTML, CSS, and JavaScript. Explore my projects and skills here." />
+    <meta name="keywords" content="Monirul Hasan Talha, portfolio, web developer, student, HTML, CSS, JavaScript, projects, Bogura, Bangladesh, programmer" />
+    <meta name="author" content="Monirul Hasan Talha" />
+    <link rel="canonical" href="https://talha-2008.github.io/biodata/" />
+
+    <!-- Favicon (optional but recommended) -->
+    <link rel="icon" href="https://i.postimg.cc/1Xk9bjC2/Copilot-20250921-112342.png" type="image/png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Poppins & Noto Sans Bengali -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS (Animate on Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Poppins', 'Noto Sans Bengali', sans-serif;
+            background-color: #0A192F;
+            color: #CCD6F6;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #8A2BE2, #C71585, #FF4500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+        .glass-card {
+            background: rgba(17, 34, 64, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(45, 212, 191, 0.1);
+        }
+        .tech-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            background-color: rgba(45, 212, 191, 0.1);
+            color: #5EEAD4;
+        }
+    </style>
+</head>
+<body x-data="{ isMobileMenuOpen: false, isChatOpen: false }">
+
+    <!-- Header -->
+    <header class="bg-navy-dark/80 sticky top-0 z-50 w-full border-b border-slate-800/50 backdrop-blur-lg">
+        <nav class="container mx-auto flex items-center justify-between p-4">
+            <a href="#" class="flex items-center space-x-2">
+                <img src="https://i.postimg.cc/1Xk9bjC2/Copilot-20250921-112342.png" alt="Logo" class="h-8 w-8 transition-transform duration-300 hover:rotate-[-15deg] hover:scale-110" />
+                <span class="text-xl font-bold text-slate-200">Talha</span>
+            </a>
+            <div class="hidden items-center space-x-6 md:flex">
+                <a href="#about" class="text-slate-300 hover:text-indigo-400 transition-colors">About</a>
+                <a href="#info" class="text-slate-300 hover:text-indigo-400 transition-colors">Info</a>
+                <a href="#projects" class="text-slate-300 hover:text-indigo-400 transition-colors">Projects</a>
+                <a href="#blog" class="text-slate-300 hover:text-indigo-400 transition-colors">Blog</a>
+                <a href="#contact" class="text-slate-300 hover:text-indigo-400 transition-colors">Contact</a>
+            </div>
+            <button @click="isMobileMenuOpen = !isMobileMenuOpen" class="md:hidden" aria-label="Open menu">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div x-show="isMobileMenuOpen" @click.away="isMobileMenuOpen = false" x-transition class="md:hidden">
+            <div class="flex flex-col space-y-4 px-4 pb-4">
+                <a @click="isMobileMenuOpen = false" href="#about" class="block text-slate-300 hover:text-indigo-400 transition-colors">About</a>
+                <a @click="isMobileMenuOpen = false" href="#info" class="block text-slate-300 hover:text-indigo-400 transition-colors">Info</a>
+                <a @click="isMobileMenuOpen = false" href="#projects" class="block text-slate-300 hover:text-indigo-400 transition-colors">Projects</a>
+                <a @click="isMobileMenuOpen = false" href="#blog" class="block text-slate-300 hover:text-indigo-400 transition-colors">Blog</a>
+                <a @click="isMobileMenuOpen = false" href="#contact" class="block text-slate-300 hover:text-indigo-400 transition-colors">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-16 sm:py-24">
+
+        <!-- About / Hero Section -->
+        <section id="about" class="min-h-[70vh] flex items-center">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+                <div class="md:col-span-1 flex justify-center" data-aos="fade-right">
+                    <div class="relative group">
+                        <div class="absolute -inset-1.5 bg-gradient-to-tr from-indigo-600 via-purple-600 to-pink-600 rounded-full blur-md group-hover:blur-xl transition-all duration-500"></div>
+                        <img src="https://i.postimg.cc/R05hBXqF/Whats-App-Image-2025-08-31-at-09-52-25-9ed8b8d0.jpg" alt="Monirul's photo" class="relative w-48 h-48 sm:w-60 sm:h-60 rounded-full object-cover shadow-2xl transition-transform duration-300 group-hover:scale-105" loading="lazy" />
+                    </div>
+                </div>
+                <div class="md:col-span-2 text-center md:text-left" data-aos="fade-left" data-aos-delay="200">
+                    <span class="tech-badge">Student</span>
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-slate-100 mt-3">
+                        MONIRUL HASAN TALHA
+                    </h1>
+                    <p class="mt-4 text-lg sm:text-xl text-slate-400">A passionate Web Developer & Student</p>
+                    <div class="mt-8 text-left space-y-3 text-slate-300">
+                        <h3 class="text-xl font-bold text-slate-100 border-b border-slate-700 pb-2">Personal Information</h3>
+                        <p><strong>Father name :</strong> Abdul Mannan Sarker</p>
+                        <p><strong>Mother name :</strong> Saiedatul Hure</p>
+                        <p><strong>Date of Birth:</strong> 9 march 2007</p>
+                        <p><strong>Nationality:</strong> Bangladeshi</p>
+                        <p><strong>Current Address:</strong> Kalitola,bogura</p>
+                        <p><strong>Permanent Address:</strong> Gobindagonj,gaibandha</p>
+                        <p class="mt-4 text-slate-400">A passionate and motivated student with a knack for web development and a keen interest in learning new technologies. I enjoy building creative projects that solve real-world problems. I'm always looking for opportunities to grow and improve my skills.</p>
+                        <p class="mt-2"><strong>Intermediate</strong> · BIAM Model School and College, Bogura</p>
+                    </div>
+                    <div class="mt-8 flex justify-center md:justify-start space-x-6">
+                        <a href="https://www.facebook.com/talha171219" target="_blank" aria-label="Facebook" class="text-slate-400 hover:text-indigo-400 transition-transform duration-300 hover:scale-110"><i class="fab fa-facebook-f text-2xl"></i></a>
+                        <a href="https://wa.me/qr/B2VPVRBPNQAZF1" target="_blank" aria-label="WhatsApp" class="text-slate-400 hover:text-indigo-400 transition-transform duration-300 hover:scale-110"><i class="fab fa-whatsapp text-2xl"></i></a>
+                        <a href="https://t.me/talha91108" target="_blank" aria-label="Telegram" class="text-slate-400 hover:text-indigo-400 transition-transform duration-300 hover:scale-110"><i class="fab fa-telegram-plane text-2xl"></i></a>
+                        <a href="https://github.com/talha-171219" target="_blank" aria-label="GitHub" class="text-slate-400 hover:text-indigo-400 transition-transform duration-300 hover:scale-110"><i class="fab fa-github text-2xl"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Info Section -->
+        <section id="info" class="pt-24 sm:pt-32">
+            <h2 class="text-4xl font-bold text-center gradient-text" data-aos="fade-up">Other Info</h2>
+            <div class="mt-12 glass-card rounded-xl p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-up" data-aos-delay="200">
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-slate-100">Skills</h3>
+                    <p><strong>Web Development:</strong> HTML, CSS, JavaScript (Basic)</p>
+                    <p><strong>Software:</strong> MS Office (Word, Excel, PowerPoint)</p>
+                    <p><strong>Other:</strong> Problem Solving, Team Collaboration.</p>
+                    <p><strong>Language Skills:</strong> বাংলা, Hindi,English</p>
+                </div>
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-slate-100">শিক্ষা</h3>
+                    <p><strong>Inter 2nd Year:</strong> BIAM Model school and College, Bogura.</p>
+                    <p><strong>Dakhil:</strong> Tamirul Millat Kamil Madrasah, Tongi.</p>
+                </div>
+                 <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-slate-100">ভবিষ্যৎ লক্ষ্য</h3>
+                    <p>আগে পাশ করি ইন্টার😐</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Projects Section -->
+        <section id="projects" class="pt-24 sm:pt-32">
+            <h2 class="text-4xl font-bold text-center gradient-text" data-aos="fade-up">My Projects</h2>
+            <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Cards (Generated from Original HTML) -->
+                <div class="glass-card rounded-xl p-6 flex flex-col justify-between hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div>
+                        <h3 class="text-xl font-semibold text-slate-100">📝 To-Do App</h3>
+                        <p class="mt-2 text-slate-400 text-sm">একটি সহজ To-Do অ্যাপ্লিকেশন যা আপনার দৈনন্দিন কাজগুলোকে ট্র্যাক করতে সাহায্য করে।</p>
+                    </div>
+                    <a href="https://talha-171219.github.io/TO-DO-list-2-/" target="_blank" class="mt-4 inline-block bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg text-center hover:bg-indigo-500 transition-colors">View Project</a>
+                </div>
+                <div class="glass-card rounded-xl p-6 flex flex-col justify-between hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="150">
+                    <div>
+                        <h3 class="text-xl font-semibold text-slate-100">🌦 Weather App</h3>
+                        <p class="mt-2 text-slate-400 text-sm">আপনার বর্তমান অবস্থানের আবহাওয়ার তথ্য দেখানোর জন্য একটি ইন্টারেক্টিভ ওয়েব অ্যাপ।</p>
+                    </div>
+                    <a href="https://talha-171219.github.io/weather-app/" target="_blank" class="mt-4 inline-block bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg text-center hover:bg-indigo-500 transition-colors">View Project</a>
+                </div>
+                 <div class="glass-card rounded-xl p-6 flex flex-col justify-between hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <h3 class="text-xl font-semibold text-slate-100">💬 Chat App</h3>
+                        <p class="mt-2 text-slate-400 text-sm">এটি একটি ডেমো চ্যাট অ্যাপ যা মেসেজিং এর মূল কার্যকারিতা তুলে ধরে।</p>
+                    </div>
+                    <a href="https://talha-171219.github.io/apk-chat/" target="_blank" class="mt-4 inline-block bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg text-center hover:bg-indigo-500 transition-colors">View Project</a>
+                </div>
+                <div class="glass-card rounded-xl p-6 flex flex-col justify-between hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div>
+                        <h3 class="text-xl font-semibold text-slate-100">🤖 AI Mini Bot</h3>
+                        <p class="mt-2 text-slate-400 text-sm">একটি ছোট এআই চ্যাটবট যা ব্যবহারকারীদের সাধারণ প্রশ্নের উত্তর দিতে পারে।</p>
+                    </div>
+                    <a href="https://talha388204.github.io/AI-CHATBOT/full-error%20free" target="_blank" class="mt-4 inline-block bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg text-center hover:bg-indigo-500 transition-colors">View Project</a>
+                </div>
+                <div class="glass-card rounded-xl p-6 flex flex-col justify-between hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="150">
+                    <div>
+                        <h3 class="text-xl font-semibold text-slate-100">🛒 E-Commerce (Demo)</h3>
+                        <p class="mt-2 text-slate-400 text-sm">(Wait for loading this website) একটি ডেমো ই-কমার্স ওয়েবসাইট যা একটি অনলাইন স্টোরের মৌলিক কাঠামো দেখায়।</p>
+                    </div>
+                    <a href="https://talha388204.github.io/E-Commerce-demo-by-talha/#/" target="_blank" class="mt-4 inline-block bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg text-center hover:bg-indigo-500 transition-colors">View Project</a>
+                </div>
+                <div class="glass-card rounded-xl p-6 flex flex-col justify-between hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <h3 class="text-xl font-semibold text-slate-100">🌐 Simple Social App</h3>
+                        <p class="mt-2 text-slate-400 text-sm">একটি সাধারণ সোশ্যাল মিডিয়া প্ল্যাটফর্মের ডেমো যা প্রোফাইল এবং পোস্ট প্রদর্শন করে।</p>
+                    </div>
+                    <a href="https://talha-171219.github.io/social-media/" target="_blank" class="mt-4 inline-block bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg text-center hover:bg-indigo-500 transition-colors">View Project</a>
+                </div>
+                <!-- ... Add all other project cards in the same format ... -->
+                 <div class="glass-card rounded-xl p-6 flex flex-col justify-between hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-xl font-semibold text-slate-100">📅 Event Splitter</h3>
+                    <p class="mt-2 text-slate-400 text-sm">ইভেন্ট বা সময়কে সহজে ভাগ করার জন্য একটি ইউটিলিটি অ্যাপ।</p>
+                    <a href="https://talha-c731xh03xl.mgx.world/" target="_blank" class="mt-4 inline-block bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg text-center hover:bg-indigo-500 transition-colors">View Project</a>
+                </div>
+                <div class="glass-card rounded-xl p-6 flex flex-col justify-between hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="150">
+                    <h3 class="text-xl font-semibold text-slate-100">🧮 Demo Calculator</h3>
+                    <p class="mt-2 text-slate-400 text-sm">সাধারণ গণনার জন্য একটি সহজ ক্যালকুলেটর।</p>
+                    <a href="https://talha-171219.github.io/casio-calculator.talha/" target="_blank" class="mt-4 inline-block bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg text-center hover:bg-indigo-500 transition-colors">View Project</a>
+                </div>
+                <div class="glass-card rounded-xl p-6 flex flex-col justify-between hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-semibold text-slate-100">👤 Personal Chat</h3>
+                    <p class="mt-2 text-slate-400 text-sm">একটি ডেমো চ্যাট অ্যাপ যা ছোট পরিসরে যোগাযোগের জন্য তৈরি।</p>
+                    <a href="https://talha-171219.github.io/lite-chat-app.minha/" target="_blank" class="mt-4 inline-block bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg text-center hover:bg-indigo-500 transition-colors">View Project</a>
+                </div>
+                <div class="glass-card rounded-xl p-6 flex flex-col justify-between hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-xl font-semibold text-slate-100">🎥 SS Recorder for PC</h3>
+                    <p class="mt-2 text-slate-400 text-sm">পিসির জন্য একটি স্ক্রিন শট বা স্ক্রিন রেকর্ডার।</p>
+                    <a href="https://talha388204.github.io/webRec/" target="_blank" class="mt-4 inline-block bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg text-center hover:bg-indigo-500 transition-colors">View Project</a>
+                </div>
+                 <div class="glass-card rounded-xl p-6 flex flex-col justify-between hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="150">
+                    <h3 class="text-xl font-semibold text-slate-100">📱 FB Lite (Personal)</h3>
+                    <p class="mt-2 text-slate-400 text-sm">ফেসবুকের মতো দেখতে একটি ছোট সোশ্যাল মিডিয়া ডেমো।</p>
+                    <a href="https://talha388204.github.io/great-social-app/" target="_blank" class="mt-4 inline-block bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg text-center hover:bg-indigo-500 transition-colors">View Project</a>
+                </div>
+                 <div class="glass-card rounded-xl p-6 flex flex-col justify-between hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-semibold text-slate-100">💰 Money-Tracking</h3>
+                    <p class="mt-2 text-slate-400 text-sm">দৈনন্দিন আয়-ব্যয় ট্র্যাক করার জন্য একটি সহজ অ্যাপ।</p>
+                    <a href="https://talha388204.github.io/money-tracker/" target="_blank" class="mt-4 inline-block bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg text-center hover:bg-indigo-500 transition-colors">View Project</a>
+                </div>
+                <div class="glass-card rounded-xl p-6 flex flex-col justify-between hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-xl font-semibold text-slate-100">⏲ Focus-Timer</h3>
+                    <p class="mt-2 text-slate-400 text-sm">মনোযোগ বাড়ানোর জন্য একটি Pomodoro টাইমার।</p>
+                    <a href="https://talha388204.github.io/focus-timer/timer-2" target="_blank" class="mt-4 inline-block bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg text-center hover:bg-indigo-500 transition-colors">View Project</a>
+                </div>
+                <div class="glass-card rounded-xl p-6 flex flex-col justify-between hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="150">
+                    <h3 class="text-xl font-semibold text-slate-100">🔒 Lock-Diary</h3>
+                    <p class="mt-2 text-slate-400 text-sm">পাসওয়ার্ড দ্বারা সুরক্ষিত একটি ব্যক্তিগত ডায়েরি অ্যাপ।</p>
+                    <a href="https://talha388204.github.io/lock-diary/" target="_blank" class="mt-4 inline-block bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg text-center hover:bg-indigo-500 transition-colors">View Project</a>
+                </div>
+                <div class="glass-card rounded-xl p-6 flex flex-col justify-between hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-semibold text-slate-100">⏳ Countdown App</h3>
+                    <p class="mt-2 text-slate-400 text-sm">গুরুত্বপূর্ণ ইভেন্টের জন্য একটি কাউন্টডাউন টাইমার।</p>
+                    <a href="https://talha-388204.github.io/countdown-app/" target="_blank" class="mt-4 inline-block bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg text-center hover:bg-indigo-500 transition-colors">View Project</a>
+                </div>
+                <div class="glass-card rounded-xl p-6 flex flex-col justify-between hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-xl font-semibold text-slate-100">💊 MediQueue</h3>
+                    <p class="mt-2 text-slate-400 text-sm">ঔষধের নাম এবং ব্যবহারবিধি ট্র্যাক করার জন্য একটি স্বাস্থ্য অ্যাপ।</p>
+                    <a href="https://talha388204.github.io/MediQueue/" target="_blank" class="mt-4 inline-block bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg text-center hover:bg-indigo-500 transition-colors">View Project</a>
+                </div>
+                <div class="glass-card rounded-xl p-6 flex flex-col justify-between hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="150">
+                    <h3 class="text-xl font-semibold text-slate-100">💸 Bkash (Demo)</h3>
+                    <p class="mt-2 text-slate-400 text-sm">বিকাশের মতো দেখতে একটি ডেমো পেমেন্ট অ্যাপ।</p>
+                    <a href="https://talha388204.github.io/bkash-demo-/" target="_blank" class="mt-4 inline-block bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg text-center hover:bg-indigo-500 transition-colors">View Project</a>
+                </div>
+                <div class="glass-card rounded-xl p-6 flex flex-col justify-between hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-semibold text-slate-100">❤ Hello Priyotoma</h3>
+                    <p class="mt-2 text-slate-400 text-sm">একটি সাধারণ রোম্যান্টিক মেসেজিং অ্যাপ।</p>
+                    <a href="https://talha388204.github.io/hello-priyotoma/" target="_blank" class="mt-4 inline-block bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg text-center hover:bg-indigo-500 transition-colors">View Project</a>
+                </div>
+                <div class="glass-card rounded-xl p-6 flex flex-col justify-between hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-xl font-semibold text-slate-100">🧭 Crowd-Navigation</h3>
+                    <p class="mt-2 text-slate-400 text-sm">অফলাইন ক্রাউড নেভিগেশনের জন্য একটি ম্যাপ-ভিত্তিক অ্যাপ।</p>
+                    <a href="https://talha388204.github.io/hello-priyotoma/nev.html" target="_blank" class="mt-4 inline-block bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg text-center hover:bg-indigo-500 transition-colors">View Project</a>
+                </div>
+                <div class="glass-card rounded-xl p-6 flex flex-col justify-between hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="150">
+                    <h3 class="text-xl font-semibold text-slate-100">🌏 World-map</h3>
+                    <p class="mt-2 text-slate-400 text-sm">একটি ম্যাপ যা বিভিন্ন দেশের তথ্য প্রদর্শন করে।</p>
+                    <a href="https://talha-388204.github.io/World-map/" target="_blank" class="mt-4 inline-block bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg text-center hover:bg-indigo-500 transition-colors">View Project</a>
+                </div>
+                <div class="glass-card rounded-xl p-6 flex flex-col justify-between hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-semibold text-slate-100">🍳 CaptionCraft</h3>
+                    <p class="mt-2 text-slate-400 text-sm">ছবির জন্য ক্যাপশন তৈরি করার একটি সহজ টুল।</p>
+                    <a href="https://talha-2008.github.io/Caption-hub/" target="_blank" class="mt-4 inline-block bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg text-center hover:bg-indigo-500 transition-colors">View Project</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section id="blog" class="pt-24 sm:pt-32">
+            <h2 class="text-4xl font-bold text-center gradient-text" data-aos="fade-up">Blog</h2>
+            <div class="mt-12 glass-card rounded-xl p-8 flex flex-col md:flex-row items-center justify-between gap-8" data-aos="fade-up" data-aos-delay="200">
+                <div class="text-center md:text-left">
+                    <h3 class="text-2xl font-semibold text-slate-100">Latest Articles & Updates</h3>
+                    <p class="mt-2 text-slate-400">Check my short posts, tutorials, and project write-ups about web development and my learning journey.</p>
+                </div>
+                <div class="flex flex-wrap justify-center gap-4">
+                     <a href="./blog.html" class="bg-indigo-600 text-white font-semibold py-2 px-5 rounded-lg hover:bg-indigo-500 transition-colors">Visit Blog</a>
+                     <a href="./timeline.html" class="bg-purple-600 text-white font-semibold py-2 px-5 rounded-lg hover:bg-purple-500 transition-colors">Timeline</a>
+                     <a href="./travel-diary.html" class="bg-pink-600 text-white font-semibold py-2 px-5 rounded-lg hover:bg-pink-500 transition-colors">Travel Diary</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="pt-24 sm:pt-32">
+            <h2 class="text-4xl font-bold text-center gradient-text" data-aos="fade-up">Contact Us</h2>
+            <div class="mt-12 max-w-2xl mx-auto glass-card rounded-xl p-8" data-aos="fade-up" data-aos-delay="200">
+                <p class="text-center text-slate-400">আমার সাথে যোগাযোগ করতে চাইলে নিচের তথ্যগুলো ব্যবহার করতে পারেন অথবা ফর্মটি পূরণ করতে পারেন:</p>
+                <div class="text-center space-y-2 my-6">
+                    <p><i class="fas fa-phone-alt text-indigo-400 mr-2"></i> <strong>Phone:</strong> 01909751433</p>
+                    <p><i class="fas fa-envelope text-indigo-400 mr-2"></i> <strong>Email:</strong> monirulhasantalha@gmail.com</p>
+                </div>
+                <form class="space-y-6" action="https://formspree.io/f/your-form-id" method="POST">
+                    <input type="text" name="name" placeholder="আপনার নাম" required class="w-full bg-slate-900/50 border border-slate-700 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all">
+                    <input type="email" name="email" placeholder="আপনার ইমেইল" required class="w-full bg-slate-900/50 border border-slate-700 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all">
+                    <textarea name="message" rows="5" placeholder="আপনার বার্তা" required class="w-full bg-slate-900/50 border border-slate-700 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all"></textarea>
+                    <button type="submit" class="w-full bg-indigo-600 text-white font-semibold py-3 px-4 rounded-lg hover:bg-indigo-500 transition-colors">পাঠিয়ে দিন</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-24 sm:mt-32 border-t border-slate-800/50">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+                <div class="space-y-4">
+                    <h4 class="font-bold text-slate-200">About Me</h4>
+                    <ul class="space-y-2">
+                        <li><a href="./blog.html" class="text-slate-400 hover:text-indigo-400">Blog</a></li>
+                        <li><a href="#about" class="text-slate-400 hover:text-indigo-400">About Me</a></li>
+                        <li><a href="#info" class="text-slate-400 hover:text-indigo-400">Other Info</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="font-bold text-slate-200">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#projects" class="text-slate-400 hover:text-indigo-400">Web Development</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-indigo-400">Custom Projects</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="font-bold text-slate-200">Legal & Policy</h4>
+                    <ul class="space-y-2">
+                        <li><a href="./legal-policy/" class="text-slate-400 hover:text-indigo-400">Privacy Policy</a></li>
+                        <li><a href="./legal-policy/#terms" class="text-slate-400 hover:text-indigo-400">Terms of Use</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="font-bold text-slate-200">Get in Touch</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://wa.me/qr/B2VPVRBPNQAZF1" target="_blank" class="text-slate-400 hover:text-indigo-400">WhatsApp</a></li>
+                        <li><a href="https://t.me/talha91108" target="_blank" class="text-slate-400 hover:text-indigo-400">Telegram</a></li>
+                        <li><a href="mailto:monirulhasantalha@gmail.com" class="text-slate-400 hover:text-indigo-400">Email</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-800/50 pt-8 flex flex-col sm:flex-row justify-between items-center text-center">
+                <p class="text-slate-500 text-sm">&copy; 2025 MONIRUL HASAN TALHA. All rights reserved.</p>
+                <div class="mt-4 sm:mt-0 flex space-x-6">
+                    <a href="https://www.facebook.com/talha171219" target="_blank" aria-label="Facebook" class="text-slate-400 hover:text-indigo-400 transition-transform duration-300 hover:scale-110"><i class="fab fa-facebook-f text-xl"></i></a>
+                    <a href="https://wa.me/qr/B2VPVRBPNQAZF1" target="_blank" aria-label="WhatsApp" class="text-slate-400 hover:text-indigo-400 transition-transform duration-300 hover:scale-110"><i class="fab fa-whatsapp text-xl"></i></a>
+                    <a href="https://t.me/talha91108" target="_blank" aria-label="Telegram" class="text-slate-400 hover:text-indigo-400 transition-transform duration-300 hover:scale-110"><i class="fab fa-telegram-plane text-xl"></i></a>
+                    <a href="https://github.com/talha-171219" target="_blank" aria-label="GitHub" class="text-slate-400 hover:text-indigo-400 transition-transform duration-300 hover:scale-110"><i class="fab fa-github text-xl"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- AI Chatbot Button -->
+    <button @click="isChatOpen = true" aria-label="Open AI Chat" class="fixed bottom-5 right-5 w-16 h-16 bg-gradient-to-br from-indigo-600 to-purple-700 rounded-full shadow-lg flex items-center justify-center text-white z-50 transform hover:scale-110 transition-transform duration-300 animate-pulse hover:animate-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.486 2 2 5.589 2 10c0 2.908 1.897 5.515 5 6.934V22l5.34-4.005C17.697 17.852 22 14.32 22 10c0-4.411-4.486-8-10-8zm0 14h-.333L7 19.333V17.5a1 1 0 0 0-1-1H5c-2.757 0-5-2.243-5-5s2.243-5 5-5h14c-1.353 3.414-4.997 6-9 6z"/><path d="M14 8h-4a1 1 0 0 0 0 2h4a1 1 0 0 0 0-2zm3 2h-7a1 1 0 0 0 0 2h7a1 1 0 0 0 0-2z"/></svg>
+    </button>
+    
+    <!-- AI Chatbot Modal -->
+    <div x-show="isChatOpen" @keydown.escape.window="isChatOpen = false" class="fixed inset-0 z-[999] flex items-center justify-center" style="display: none;">
+        <!-- Overlay -->
+        <div @click="isChatOpen = false" class="fixed inset-0 bg-black/60 backdrop-blur-sm" x-show="isChatOpen" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"></div>
+        
+        <!-- Modal Content -->
+        <div class="relative w-full max-w-2xl h-[80vh] bg-slate-800 rounded-xl shadow-2xl flex flex-col" x-show="isChatOpen" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="ease-in duration-200" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95">
+             <div class="flex items-center justify-between p-4 border-b border-slate-700">
+                <h3 class="text-lg font-semibold text-slate-100">Personal AI Assistant</h3>
+                <button @click="isChatOpen = false" class="text-slate-400 hover:text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
+            <div class="flex-grow p-1">
+                 <iframe src="https://talhas-personal-ai.lovable.app" class="w-full h-full border-0 rounded-b-lg" title="AI Chatbot"></iframe>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50,
+        });
+    </script>
+</body>
+</html>
